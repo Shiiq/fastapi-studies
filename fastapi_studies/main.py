@@ -4,7 +4,6 @@ from fastapi_studies.infrastructure.redis.client import get_redis_client
 
 
 def initialize_application():
-
     config = load_config()
     redis_client = get_redis_client(config.redis)
     app = create_app(config.api, redis_client)
