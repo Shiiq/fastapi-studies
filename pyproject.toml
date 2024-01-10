@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "fastapi-studies"
+version = "0.1.0"
+description = ""
+authors = ["Shiiq <anjunatown@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["uvicorn"], version = "^0.108.0"}
+redis = "^5.0.1"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.25"}
+setuptools = "^69.0.3"
+uvicorn = {extras = ["standard"], version = "^0.25.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
