@@ -1,4 +1,3 @@
-import asyncio
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
@@ -12,6 +11,7 @@ from .config import RedisConfig
 async def get_redis_client(
         redis_config: RedisConfig
 ) -> AsyncGenerator[Redis, None]:
+
     redis_client = redis.Redis(
         host=redis_config.host,
         port=redis_config.port
@@ -20,13 +20,3 @@ async def get_redis_client(
     yield redis_client
     print("closing redis client")
     await redis_client.aclose()
-
-
-# async def check():
-#     client = redis.Redis()
-#     print(type(client))
-#     print(f"Ping successful: {await client.ping()}")
-#     await client.aclose()
-#
-#
-# asyncio.run(check())

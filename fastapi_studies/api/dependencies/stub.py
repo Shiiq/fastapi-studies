@@ -3,6 +3,21 @@ from typing import Any
 
 
 class Stub:
+    """
+    https://github.com/Tishka17/fastapi-template
+
+    This class is used to prevent fastapi from digging into
+    real dependencies attributes detecting them as request data
+
+    So instead of
+    `interactor: Annotated[Interactor, Depends()]`
+    Write
+    `interactor: Annotated[Interactor, Depends(Stub(Interactor))]`
+
+    And then you can declare how to create it:
+    `app.dependency_overrids[Interactor] = some_real_factory`
+    """
+
     def __init__(self, dependency: Callable, **kwargs: Hashable) -> None:
         self._dependency = dependency
         self._kwargs = kwargs
