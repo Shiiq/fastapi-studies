@@ -12,6 +12,8 @@ redis = "^5.0.1"
 sqlalchemy = {extras = ["asyncio"], version = "^2.0.25"}
 setuptools = "^69.0.3"
 uvicorn = {extras = ["standard"], version = "^0.25.0"}
+aiosqlite = "^0.19.0"
+asyncpg = "^0.29.0"
 
 
 [build-system]
