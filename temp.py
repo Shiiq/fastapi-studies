@@ -1,4 +1,5 @@
 import asyncio
+import csv
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
@@ -37,6 +38,13 @@ def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(type_checker())
+    # with open("movies.csv", newline="") as f:
+    #     reader = csv.reader(f, delimiter=",")
+    #     header = next(reader)
+    #     for r in reader:
+    #         print(r[0], r[1])
+    # asyncio.run(type_checker())
     # res = main()
     # print(f"THE END OF ANYTHING, special_msg: {res}")
+    pass
+
