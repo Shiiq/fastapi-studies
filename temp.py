@@ -1,5 +1,6 @@
 import asyncio
 import csv
+import datetime
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
@@ -46,5 +47,8 @@ if __name__ == "__main__":
     # asyncio.run(type_checker())
     # res = main()
     # print(f"THE END OF ANYTHING, special_msg: {res}")
+    x = 2005
+    xd = datetime.date(year=x, month=0, day=0)
+    print(xd)
     pass
 
