@@ -1,8 +1,14 @@
-from sqlalchemy import SmallInteger, String, UniqueConstraint
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy import ForeignKey, SmallInteger, String, UniqueConstraint
+from sqlalchemy.ext.associationproxy import association_proxy
+from sqlalchemy.ext.associationproxy import AssociationProxy
+from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.orm import Mapped
+from sqlalchemy.orm import mapped_column
+from sqlalchemy.orm import relationship
 
-MOVIE_TABLENAME = "movie"
 GENRE_TABLENAME = "genre"
+MOVIE_TABLENAME = "movie"
+MOVIEGENRE_TABLENAME = "movie_genre"
 
 
 class Base(DeclarativeBase):
@@ -10,10 +16,30 @@ class Base(DeclarativeBase):
 
     __abstract__ = True
 
+
+class IDMixin:
+
     id: Mapped[int] = mapped_column(primary_key=True)
 
 
-class Movie(Base):
+class Genre(IDMixin, Base):
+    """Genre DB model"""
+
+    __tablename__ = GENRE_TABLENAME
+
+    name: Mapped[str] = mapped_column(
+        String,
+        nullable=False,
+        unique=True
+    )
+
+    movies: Mapped[list["Movie"]] = relationship(
+        back_populates="genres",
+        secondary=MOVIEGENRE_TABLENAME
+    )
+
+
+class Movie(IDMixin, Base):
     """Movie DB model"""
 
     __tablename__ = MOVIE_TABLENAME
@@ -28,28 +54,32 @@ class Movie(Base):
         nullable=False,
     )
 
-    # genres: Mapped[list["Genre"]] = relationship(
-    #     argument="Genre",
-    #     back_populates="movies"
-    # )
+    genre: AssociationProxy[list[str]] = association_proxy(
+        target_collection="genres",
+        attr="name"
+    )
+
+    genres: Mapped[list["Genre"]] = relationship(
+        back_populates="movies",
+        secondary=MOVIEGENRE_TABLENAME
+    )
 
     __table_args__ = (
         UniqueConstraint("title", "year", name="uq_title_to_year"),
     )
 
 
-class Genre(Base):
-    """Genre DB model"""
+class MovieGenre(Base):
+    """Association DB model to store movie's genre"""
 
-    __tablename__ = GENRE_TABLENAME
+    __tablename__ = MOVIEGENRE_TABLENAME
 
-    name: Mapped[str] = mapped_column(
-        String,
-        nullable=False,
-        unique=True
+    movie_id: Mapped[int] = mapped_column(
+        ForeignKey("movie.id"),
+        primary_key=True
     )
 
-    # movies: Mapped[list["Movie"]] = relationship(
-    #     argument="Movie",
-    #     back_populates="genres"
-    # )
+    genre_id: Mapped[int] = mapped_column(
+        ForeignKey("genre.id"),
+        primary_key=True
+    )
