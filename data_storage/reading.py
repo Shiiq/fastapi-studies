@@ -3,13 +3,16 @@ import re
 import pathlib
 from typing import Iterator
 
-# full record example:          193609,Andrew Dice Clay: Dice Rules (1991),Comedy
-# record example to be parsed:  Andrew Dice Clay: Dice Rules (1991)
-# desired output:               {title: 'Andrew Dice Clay: Dice Rules', year: '1991'}
+# full record example:          152081,Zootopia (2016),Action|Adventure|Animation|Children|Comedy
+# record example to be parsed:  Zootopia (2016)
+# desired output:               {title: 'Zootopia',
+#                                year: '2016',
+#                                genre: ['Action', 'Adventure', 'Animation', 'Children', 'Comedy']}
 
 TITLE_YEAR_PATTERN = r"^(.+)\((\d{4})\)$"
-TITLE_FIELD = "title"
-YEAR_FIELD = "year"
+TITLE = "title"
+YEAR = "year"
+GENRES = "genres"
 
 
 def read_csv(filepath: pathlib.Path | str) -> Iterator[dict[str, str]]:
@@ -19,6 +22,7 @@ def read_csv(filepath: pathlib.Path | str) -> Iterator[dict[str, str]]:
         for line in reader:
             parsed = re.search(TITLE_YEAR_PATTERN, line[1])
             yield {
-                TITLE_FIELD: parsed.group(1).strip(),
-                YEAR_FIELD: parsed.group(2)
+                TITLE: parsed.group(1).strip(),
+                YEAR: parsed.group(2),
+                GENRES: line[2].split("|")
             }

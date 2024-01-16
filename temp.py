@@ -38,6 +38,11 @@ def main():
         return 1000
 
 
+class Genre:
+    def __init__(self, name):
+        self.name = name
+
+
 if __name__ == "__main__":
     # with open("movies.csv", newline="") as f:
     #     reader = csv.reader(f, delimiter=",")
@@ -47,8 +52,11 @@ if __name__ == "__main__":
     # asyncio.run(type_checker())
     # res = main()
     # print(f"THE END OF ANYTHING, special_msg: {res}")
-    x = 2005
-    xd = datetime.date(year=x, month=0, day=0)
-    print(xd)
+    x = "Action|Animation|Crime|Sci-Fi|Thriller"
+    x = x.split("|")
+    dct = {}
+    # print([dct.get(g_name, Genre(name=g_name)) for g_name in x])
+    # print(dct)
+    # print([dct.setdefault(g_name, Genre(name=g_name)) for g_name in x])
+    # print(dct)
     pass
-

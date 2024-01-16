@@ -18,6 +18,7 @@ class Base(DeclarativeBase):
 
 
 class IDMixin:
+    """ID mixin for DB models"""
 
     id: Mapped[int] = mapped_column(primary_key=True)
 
