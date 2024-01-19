@@ -7,11 +7,11 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-fastapi = {extras = ["uvicorn"], version = "^0.108.0"}
+fastapi = {extras = ["uvicorn"], version = "^0.109.0"}
 redis = "^5.0.1"
 sqlalchemy = {extras = ["asyncio"], version = "^2.0.25"}
 setuptools = "^69.0.3"
-uvicorn = {extras = ["standard"], version = "^0.25.0"}
+uvicorn = {extras = ["standard"], version = "^0.26.0"}
 aiosqlite = "^0.19.0"
 asyncpg = "^0.29.0"
 alembic = "^1.13.1"

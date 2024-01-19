@@ -56,7 +56,7 @@ if __name__ == "__main__":
     x = x.split("|")
     dct = {}
     # print([dct.get(g_name, Genre(name=g_name)) for g_name in x])
-    # print(dct)
-    # print([dct.setdefault(g_name, Genre(name=g_name)) for g_name in x])
-    # print(dct)
+    print(dct)
+    print([dct.setdefault(g_name, Genre(name=g_name)) for g_name in x])
+    print(dct)
     pass

@@ -10,9 +10,9 @@ from typing import Iterator
 #                                genre: ['Action', 'Adventure', 'Animation', 'Children', 'Comedy']}
 
 TITLE_YEAR_PATTERN = r"^(.+)\((\d{4})\)$"
+GENRES = "genres"
 TITLE = "title"
 YEAR = "year"
-GENRES = "genres"
 
 
 def read_csv(filepath: pathlib.Path | str) -> Iterator[dict[str, str]]:
