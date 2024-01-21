@@ -43,20 +43,32 @@ class Genre:
         self.name = name
 
 
+def get_g(param):
+    return Genre(param)
+
+
 if __name__ == "__main__":
-    # with open("movies.csv", newline="") as f:
-    #     reader = csv.reader(f, delimiter=",")
-    #     header = next(reader)
-    #     for r in reader:
-    #         print(r[0], r[1])
-    # asyncio.run(type_checker())
-    # res = main()
-    # print(f"THE END OF ANYTHING, special_msg: {res}")
-    x = "Action|Animation|Crime|Sci-Fi|Thriller"
-    x = x.split("|")
-    dct = {}
-    # print([dct.get(g_name, Genre(name=g_name)) for g_name in x])
-    print(dct)
-    print([dct.setdefault(g_name, Genre(name=g_name)) for g_name in x])
-    print(dct)
+    d = {
+        "dep_1": {},
+    }
+    # first request to private obj
+    print(d["dep_1"].get("user_1", False))
+
+    # some authentication
+    # result is
+    d["dep_1"]["user_1"] = True
+    print(d)
+
+    d["dep_1"].setdefault("user_1", False)
+    print(d)
+
+    d["dep_2"] = {}
+    print(d)
+
+    d["dep_2"].setdefault("user_2", False)
+    print(d)
+
+    d["dep_2"].setdefault("user_2", True)
+    print(d)
+
     pass

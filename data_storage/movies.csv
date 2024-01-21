@@ -5822,7 +5822,6 @@ movieId,title,genres
 32116,"Oh, God! You Devil (1984)",Comedy
 32139,"Agony and the Ecstasy, The (1965)",Drama
 32160,Twentieth Century (1934),Comedy
-32179,Elevator to the Gallows (a.k.a. Frantic) (Ascenseur pour l'échafaud) (1958),Crime|Drama|Thriller
 32213,Cube Zero (2004),Horror|Mystery|Sci-Fi|Thriller
 32234,Julia (1977),Drama
 32243,Stealing Rembrandt (Rembrandt) (2003),Action|Comedy|Crime
@@ -5835,11 +5834,9 @@ movieId,title,genres
 32302,"League of Ordinary Gentlemen, A (2004)",Documentary
 32314,Incident at Loch Ness (2004),Adventure|Comedy|Documentary
 32371,Call Northside 777 (1948),Crime|Drama|Film-Noir
-32387,"Sword of Doom, The (Dai-bosatsu tôge) (1966)",Action|Drama
 32392,800 Bullets (800 Balas) (2002),Comedy|Crime|Drama|Western
 32440,If Looks Could Kill (1991),Action|Comedy
 32442,Greedy (1994),Comedy
-32456,"Pom Poko (a.k.a. Raccoon War, The) (Heisei tanuki gassen pompoko) (1994)",Animation|Comedy|Drama|Fantasy
 32460,Knockin' on Heaven's Door (1997),Action|Comedy|Crime|Drama
 32469,We're No Angels (1955),Comedy|Crime|Drama
 32511,"Touch of Zen, A (Xia nu) (1971)",Action|Adventure
@@ -6569,7 +6566,7 @@ movieId,title,genres
 55116,"Hunting Party, The (2007)",Action|Adventure|Comedy|Drama|Thriller
 55118,Eastern Promises (2007),Crime|Drama|Thriller
 55156,"Unreasonable Man, An (2006)",Documentary
-55167,Tekkonkinkreet (Tekkon kinkurîto) (2006),Action|Adventure|Animation|Crime|Fantasy
+55167,Tekkonkinkreet (2006),Action|Adventure|Animation|Crime|Fantasy
 55190,Love and Other Disasters (2006),Comedy|Romance
 55205,Interview (2007),Drama
 55207,Cashback (2004),Comedy|Drama
@@ -6608,7 +6605,7 @@ movieId,title,genres
 55765,American Gangster (2007),Crime|Drama|Thriller
 55768,Bee Movie (2007),Animation|Comedy
 55805,Before the Devil Knows You're Dead (2007),Crime|Drama|Thriller
-55814,"Diving Bell and the Butterfly, The (Scaphandre et le papillon, Le) (2007)",Drama
+55814,"Diving Bell and the Butterfly, The (2007)",Drama
 55820,No Country for Old Men (2007),Crime|Drama
 55830,Be Kind Rewind (2008),Comedy
 55844,Itty Bitty Titty Committee (2007),Comedy|Drama|Romance
@@ -6620,7 +6617,7 @@ movieId,title,genres
 56003,Southland Tales (2006),Comedy|Drama|Sci-Fi|Thriller
 56012,"Evening with Kevin Smith 2: Evening Harder, An (2006)",Comedy|Documentary
 56022,Harrison Bergeron (1995),Drama|Sci-Fi
-56060,I Served the King of England (Obsluhoval jsem anglického krále) (2006),Comedy|Drama|Romance|War
+56060,I Served the King of England (2006),Comedy|Drama|Romance|War
 56145,"Mist, The (2007)",Horror|Sci-Fi
 56152,Enchanted (2007),Adventure|Animation|Children|Comedy|Fantasy|Musical|Romance
 56156,Hitman (2007),Action|Crime|Thriller
@@ -6633,7 +6630,7 @@ movieId,title,genres
 56286,I'm Not There (2007),Drama
 56333,"Savages, The (2007)",Comedy|Drama
 56336,Wrong Turn 2: Dead End (2007),Action|Horror|Thriller
-56339,"Orphanage, The (Orfanato, El) (2007)",Drama|Horror|Mystery|Thriller
+56339,"Orphanage, The (2007)",Drama|Horror|Mystery|Thriller
 56367,Juno (2007),Comedy|Drama|Romance
 56379,"Maxed Out: Hard Times, Easy Credit and the Era of Predatory Lenders (2006)",Documentary
 56389,My Blueberry Nights (2007),Drama|Romance
@@ -6694,7 +6691,7 @@ movieId,title,genres
 58297,Doomsday (2008),Action|Drama|Sci-Fi|Thriller
 58299,Horton Hears a Who! (2008),Adventure|Animation|Children|Comedy
 58301,Funny Games U.S. (2007),Drama|Thriller
-58303,"Counterfeiters, The (Die Fälscher) (2007)",Crime|Drama|War
+58303,"Counterfeiters, The (2007)",Crime|Drama|War
 58306,Mongol (2007),Drama|War
 58309,War Dance (2007),Documentary
 58315,"Love Guru, The (2008)",Comedy
@@ -7398,7 +7395,7 @@ movieId,title,genres
 79895,"Extraordinary Adventures of Adèle Blanc-Sec, The (2010)",Action|Adventure|Fantasy|Mystery
 79897,Get Low (2009),Comedy|Drama|Mystery
 79946,"Joneses, The (2009)",Comedy|Drama
-80083,Dragon Ball Z: Dead Zone (Doragon bôru Z 1: Ora no Gohan wo kaese) (1989),Action|Adventure|Animation|Fantasy|Sci-Fi
+80083,Dragon Ball Z: Dead Zone (1989),Action|Adventure|Animation|Fantasy|Sci-Fi
 80094,"Last Exorcism, The (2010)",Horror|Thriller
 80124,Sisters (Syostry) (2001),Action|Crime|Drama
 80126,"American, The (2010)",Drama|Thriller
@@ -7897,15 +7894,15 @@ movieId,title,genres
 95088,Safety Not Guaranteed (2012),Comedy|Drama
 95105,Madagascar 3: Europe's Most Wanted (2012),Adventure|Animation|Children|Comedy|IMAX
 95135,Your Sister's Sister (2011),Comedy|Drama
-95145,Dragon Ball: The Curse Of The Blood Rubies (Doragon bôru: Shenron no densetsu) (1986),Action|Adventure|Animation|Children
-95147,Dragon Ball: Sleeping Princess in Devil's Castle (Doragon bôru: Majinjô no nemuri hime) (1987),Action|Adventure|Animation|Children
+95145,Dragon Ball: The Curse Of The Blood Rubies (1986),Action|Adventure|Animation|Children
+95147,Dragon Ball: Sleeping Princess in Devil's Castle (1987),Action|Adventure|Animation|Children
 95149,Superman/Batman: Public Enemies (2009),Action|Animation|Fantasy
-95163,Dragon Ball: Mystical Adventure (Doragon bôru: Makafushigi dai bôken) (1988),Action|Adventure|Animation|Children
-95165,Dragon Ball Z the Movie: The World's Strongest (a.k.a. Dragon Ball Z: The Strongest Guy in The World) (Doragon bôru Z: Kono yo de ichiban tsuyoi yatsu) (1990),Action|Adventure|Animation|Sci-Fi|Thriller
+95163,Dragon Ball: Mystical Adventure (1988),Action|Adventure|Animation|Children
+95165,Dragon Ball Z the Movie: The World's Strongest (1990),Action|Adventure|Animation|Sci-Fi|Thriller
 95167,Brave (2012),Action|Adventure|Animation|Children
 95170,Beauty and the Beast: The Enchanted Christmas (1997),Animation|Children|Fantasy|Musical
 95175,Front of the Class (2008),Drama
-95182,Dragon Ball Z the Movie: The Tree of Might (Doragon bôru Z 3: Chikyû marugoto chô kessen) (1990),Action|Adventure|Animation|Sci-Fi
+95182,Dragon Ball Z the Movie: The Tree of Might (1990),Action|Adventure|Animation|Sci-Fi
 95193,Pocahontas II: Journey to a New World (1998),Adventure|Animation|Children
 95199,What to Expect When You're Expecting (2012),Comedy|Drama|Romance
 95201,To Rome with Love (2012),Comedy
@@ -7918,13 +7915,13 @@ movieId,title,genres
 95377,One Man Band (2005),Animation|Comedy|Musical
 95441,Ted (2012),Comedy|Fantasy
 95449,Magic Mike (2012),Drama|Romance
-95473,Dragon Ball Z: The Return of Cooler (Doragon bôru Z 6: Gekitotsu! Hyakuoku pawâ no senshi) (1992),Action|Adventure|Animation
-95475,Dragon Ball Z: Cooler's Revenge (Doragon bôru Z 5: Tobikkiri no saikyô tai saikyô) (1991),Action|Adventure|Animation
-95497,Dragon Ball Z: Super Android 13! (Doragon bôru Z 7: Kyokugen batoru!! San dai sûpâ saiyajin) (1992),Action|Adventure|Animation
-95499,Dragon Ball Z: Broly - The Legendary Super Saiyan (Doragon bôru Z 8: Moetsukiro!! Nessen retsusen-chô gekisen) (1993),Action|Adventure|Animation
+95473,Dragon Ball Z: The Return of Cooler (1992),Action|Adventure|Animation
+95475,Dragon Ball Z: Cooler's Revenge (1991),Action|Adventure|Animation
+95497,Dragon Ball Z: Super Android 13! (1992),Action|Adventure|Animation
+95499,Dragon Ball Z: Broly - The Legendary Super Saiyan (1993),Action|Adventure|Animation
 95508,Cleanskin (2012),Crime|Drama|Thriller
 95510,"Amazing Spider-Man, The (2012)",Action|Adventure|Sci-Fi|IMAX
-95519,Dragon Ball Z: Bojack Unbound (Doragon bôru Z 9: Ginga girigiri!! Butchigiri no sugoi yatsu) (1993),Action|Adventure|Animation|Fantasy
+95519,Dragon Ball Z: Bojack Unbound (1993),Action|Adventure|Animation|Fantasy
 95543,Ice Age 4: Continental Drift (2012),Adventure|Animation|Comedy
 95558,Beasts of the Southern Wild (2012),Drama|Fantasy
 95583,Savages (2012),Crime|Drama|Thriller
@@ -7937,8 +7934,8 @@ movieId,title,genres
 95738,"Adventures of Mary-Kate and Ashley, The: The Case of the Christmas Caper (1995)",Children|Musical|Mystery
 95744,2 Days in New York (2012),Comedy
 95761,Killer Joe (2011),Crime|Thriller
-95771,Dragon Ball Z: Broly Second Coming (Doragon bôru Z 10: Kiken na futari! Sûpâ senshi wa nemurenai) (1994),Action|Adventure|Animation
-95780,Dragon Ball Z: Bio-Broly (Doragon bôru Z 11: Sûpâ senshi gekiha! Katsu no wa ore da) (1994),Action|Adventure|Animation
+95771,Dragon Ball Z: Broly Second Coming (1994),Action|Adventure|Animation
+95780,Dragon Ball Z: Bio-Broly (1994),Action|Adventure|Animation
 95796,Anaconda: The Offspring (2008),Action|Horror|Sci-Fi|Thriller
 95839,"Christmas Carol, A (1999)",Drama|Fantasy
 95843,Goodbye Charlie (1964),Comedy|Fantasy|Romance
@@ -7947,9 +7944,9 @@ movieId,title,genres
 95875,Total Recall (2012),Action|Sci-Fi|Thriller
 95939,"Angels' Share, The (2012)",Comedy|Drama
 95949,"Immature, The (Immaturi) (2011)",Comedy
-95965,Dragon Ball Z: Bardock - The Father of Goku (Doragon bôru Z: Tatta hitori no saishuu kessen - Furiiza ni itonda Z senshi Kakarotto no chichi) (1990),Action|Adventure|Animation
-96004,Dragon Ball Z: The History of Trunks (Doragon bôru Z: Zetsubô e no hankô!! Nokosareta chô senshi - Gohan to Torankusu) (1993),Action|Adventure|Animation
-96007,Dragon Ball GT: A Hero's Legacy (Doragon bôru GT: Gokû gaiden! Yûki no akashi wa sû-shin-chû) (1997),Action|Adventure|Animation
+95965,Dragon Ball Z: Bardock - The Father of Goku (1990),Action|Adventure|Animation
+96004,Dragon Ball Z: The History of Trunks (1993),Action|Adventure|Animation
+96007,Dragon Ball GT: A Hero's Legacy (1997),Action|Adventure|Animation
 96020,Sidewalls (Medianeras) (2011),Drama
 96079,Skyfall (2012),Action|Adventure|Thriller|IMAX
 96084,Hands Over the City (Le mani sulla città) (1963),Drama
@@ -8339,13 +8336,13 @@ movieId,title,genres
 107962,Freezer (2014),Action|Thriller
 107997,We Are What We Are (2013),Drama|Horror|Mystery|Thriller
 107999,Dragon ball Z 04: Lord Slug (1991),Animation|Children
-108078,Chinese Puzzle (Casse-tête chinois) (2013),Comedy|Romance
-108090,Dragon Ball: The Path to Power (Doragon bôru: Saikyô e no michi) (1996),Action|Adventure|Animation|Children
+108078,Chinese Puzzle (2013),Comedy|Romance
+108090,Dragon Ball: The Path to Power (1996),Action|Adventure|Animation|Children
 108156,Ride Along (2014),Action|Comedy
 108188,Jack Ryan: Shadow Recruit (2014),Action|Drama|Thriller|IMAX
 108190,Divergent (2014),Adventure|Romance|Sci-Fi|IMAX
 108192,Hotel Chevalier (Part 1 of 'The Darjeeling Limited') (2007),Drama
-108540,Ernest & Célestine (Ernest et Célestine) (2012),Adventure|Animation|Children|Comedy|Drama|Romance
+108540,Ernest & Célestine (2012),Adventure|Animation|Children|Comedy|Drama|Romance
 108601,Drift (2013),Drama
 108689,"I, Frankenstein (2014)",Action|Fantasy|Sci-Fi|IMAX
 108715,Better Living Through Chemistry (2014),Comedy|Drama
