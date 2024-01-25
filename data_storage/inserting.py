@@ -1,6 +1,7 @@
 from typing import Iterable
 
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.dialects.sqlite import insert as sqlite_upsert
 
 from fastapi_studies.infrastructure.database.models import Genre, Movie
 from .reading import GENRES, TITLE, YEAR

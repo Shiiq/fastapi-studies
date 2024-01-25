@@ -5,8 +5,9 @@ from fastapi import FastAPI, Depends
 from redis.asyncio.client import Redis
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from fastapi_studies.infrastructure.database.repositories import MovieRepo
 from fastapi_studies.api.dependencies.stub import Stub
+from fastapi_studies.infrastructure.database.repositories import MovieRepo
+
 
 def get_redis_client() -> Redis:
     raise NotImplementedError

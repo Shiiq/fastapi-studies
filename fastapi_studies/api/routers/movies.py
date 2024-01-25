@@ -1,9 +1,6 @@
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, Request
 
-from sqlalchemy.ext.asyncio import AsyncSession
-from redis.asyncio.client import Redis
-
-from fastapi_studies.api.dependencies import get_db_session, get_redis_client
+from fastapi_studies.api.routers.request import MovieFilterParams
 from fastapi_studies.infrastructure.database.repositories import MovieRepo
 from fastapi_studies.api.dependencies.stub import Stub
 
@@ -12,12 +9,16 @@ movies_router = APIRouter(prefix="/movies")
 
 @movies_router.get("/get")
 async def get_movies_by_genre(
-        genre: list[str] = Query(default=None),
+        movie_filter_params: MovieFilterParams = Depends(),
         movie_repo: Stub(MovieRepo) = Depends()
 ):
-    print(genre, type(genre))
-    print(
-        f"DB GATEWAY ID {id(movie_repo)}, "
-        f"SESSION ID {id(movie_repo._session)}"
-    )
+    print(movie_filter_params)
+    movies = await movie_repo.get_movies_by_genre_and_year(movie_filter_params)
+    for m in movies:
+        print(m)
+    # print(genre, type(genre))
+    # print(
+    #     f"DB GATEWAY ID {id(movie_repo)}, "
+    #     f"SESSION ID {id(movie_repo._session)}"
+    # )
     return {"hello": "world"}
