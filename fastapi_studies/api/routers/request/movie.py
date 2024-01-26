@@ -1,9 +1,9 @@
 from fastapi import Query
-from pydantic import BaseModel, NonNegativeInt, PositiveInt
+from pydantic import BaseModel, Field, PositiveInt
 
 
-class MovieFilterParams(BaseModel):
+class MovieFindRequest(BaseModel):
 
-    genre: list[str] = Query(default=[""])
-    year_from: NonNegativeInt = Query(default=0)
-    year_to: PositiveInt = Query(default=9999)
+    genre: list[str] | None = Field(Query(None))
+    year_from: PositiveInt | None = Field(Query(1))
+    year_to: PositiveInt | None = Field(Query(9999))

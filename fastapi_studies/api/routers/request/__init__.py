@@ -1,5 +1,5 @@
-from .movie import MovieFilterParams
+from .movie import MovieFindRequest
 
 __all__ = (
-    "MovieFilterParams",
+    "MovieFindRequest",
 )

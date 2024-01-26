@@ -17,13 +17,17 @@ class MovieRepo(MovieReader):
             self,
             filter_data,
     ) -> Sequence[Movie]:
-        q = (
-            select(Movie)
-            .options(selectinload(Movie.genres))
-            .where(and_(Movie.genre == genre for genre in filter_data.genre))
-            .where(Movie.year.between(filter_data.year_from, filter_data.year_to))
-            .order_by(Movie.year.desc(), Movie.title.asc())
-        )
+        q = select(Movie).options(selectinload(Movie.genres))
+        if filter_data.genre:
+            q = q.where(and_(
+                Movie.genre == genre for genre in filter_data.genre
+            ))
+        q = q.where(Movie.year.between(
+            filter_data.year_from,
+            filter_data.year_to
+        ))
+        q = q.order_by(Movie.year.desc(), Movie.title.asc())
+
         movies = await self._session.execute(q)
         movies = movies.scalars().all()
         return movies
