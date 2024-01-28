@@ -6,12 +6,19 @@ class Movie:
 
     title: str
     year: int
-    genre: list[str]
+    genres: list[str]
 
 
 @dataclass
-class MovieFindData:
+class MovieFilterData:
 
-    genre: list[str] = None
-    year_from: int = 1
-    year_to: int = 9999
+    genre: list[str]
+    year_from: int
+    year_to: int
+
+
+@dataclass
+class MoviePagination:
+
+    limit: int = 15
+    offset: int = 0

@@ -1,5 +1,7 @@
-from .movie import MovieFindRequest
+from .movie import MovieFilterRequest
+from .pagination import PaginationRequest
 
 __all__ = (
-    "MovieFindRequest",
+    "MovieFilterRequest",
+    "PaginationRequest",
 )

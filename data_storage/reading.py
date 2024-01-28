@@ -24,5 +24,5 @@ def read_csv(filepath: pathlib.Path | str) -> Iterator[dict[str, str]]:
             yield {
                 TITLE: parsed.group(1).strip(),
                 YEAR: parsed.group(2),
-                GENRES: line[2].split("|")
+                GENRES: line[2].lower().split("|")
             }

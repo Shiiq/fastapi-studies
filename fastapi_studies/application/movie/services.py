@@ -1,35 +1,67 @@
-from fastapi_studies.api.routers.request import MovieFindRequest
+from fastapi_studies.api.routers.request import MovieFilterRequest
+from fastapi_studies.api.routers.request import PaginationRequest
 from fastapi_studies.application.movie.interfaces import MovieReader
-from fastapi_studies.application.movie.models import Movie, MovieFindData
+from fastapi_studies.application.movie.models import Movie
+from fastapi_studies.application.movie.models import MovieFilterData
+from fastapi_studies.application.movie.models import MoviePagination
+from .constants import GENRE_DEFAULT, YEAR_FROM_DEFAULT, YEAR_TO_DEFAULT
 
 
 class MovieFindService:
 
-    def __init__(self, movie_repo: MovieReader):
-        self._movie_repo = movie_repo
+    def __init__(self, movie_reader: MovieReader):
+        self._movie_reader = movie_reader
 
     async def __call__(
             self,
-            request_data: MovieFindRequest
-    ) -> ...:
-        filter_data = self._get_filter_data(request_data)
+            request_data: MovieFilterRequest,
+            pagination_data: PaginationRequest
+    ) -> list[Movie]:
 
-        pass
+        filter_params = self._get_filter_params(request_data)
+        pagination_params = self._get_pagination_params(pagination_data)
+        movies = await self._get_movies(filter_params)
+        return movies
 
-    def _get_filter_data(
+    def _get_filter_params(
             self,
-            request_data: MovieFindRequest
-    ) -> MovieFindData:
-        filter_data = MovieFindData()
-        filter_data.genre = request_data.genre or None
-        if request_data.year_from > request_data.year_to:
-            filter_data.year_from = request_data.year_to
-            filter_data.year_to = request_data.year_from
-        return filter_data
+            request_data: MovieFilterRequest
+    ) -> MovieFilterData:
+
+        genre = request_data.genre or GENRE_DEFAULT
+        year_from = request_data.year_from or YEAR_FROM_DEFAULT
+        year_to = request_data.year_to or YEAR_TO_DEFAULT
+        if year_from > year_to:
+            year_from, year_to = year_to, year_from
+        return MovieFilterData(
+            genre=genre,
+            year_from=year_from,
+            year_to=year_to
+        )
+
+    def _get_pagination_params(
+            self,
+            pagination_data: PaginationRequest
+    ) -> MoviePagination:
+
+        offset = (pagination_data.page - 1) * pagination_data.per_page
+        return MoviePagination(
+            limit=pagination_data.per_page,
+            offset=offset
+        )
 
     async def _get_movies(
             self,
-            filter_data: MovieFindData
+            filter_params: MovieFilterData,
+            pagination_params: MoviePagination | None = None
     ) -> list[Movie]:
-        movies_orm = await self._movie_repo.get_movies_by_genre_and_year(filter_data)
-        pass
+
+        movies = await self._movie_reader.get_by_genre_and_year(
+            filter_params=filter_params,
+            pagination_params=pagination_params
+        )
+        movies = [
+            Movie(genres=movie.genre, title=movie.title, year=movie.year)
+            for movie in movies
+        ]
+        return movies

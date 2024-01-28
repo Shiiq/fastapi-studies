@@ -3,8 +3,7 @@ from pydantic import BaseModel
 
 class Pagination(BaseModel):
 
-    page: int = 1
-    limit: int = 15
-
+    page: int
+    per_page: int
     # next_page: str = ""
     # prev_page: str = ""

@@ -1,8 +1,11 @@
 import asyncio
 import csv
 import datetime
+from dataclasses import dataclass, Field
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
+
+from pydantic import BaseModel
 
 
 # @asynccontextmanager
@@ -47,28 +50,21 @@ def get_g(param):
     return Genre(param)
 
 
+class Input(BaseModel):
+    a: str | None = None
+    b: int | None = None
+    c: int | None = None
+
+
+@dataclass
+class Output:
+    a: str
+    b: int
+    c: int
+
+
+
 if __name__ == "__main__":
-    d = {
-        "dep_1": {},
-    }
-    # first request to private obj
-    print(d["dep_1"].get("user_1", False))
-
-    # some authentication
-    # result is
-    d["dep_1"]["user_1"] = True
-    print(d)
-
-    d["dep_1"].setdefault("user_1", False)
-    print(d)
-
-    d["dep_2"] = {}
-    print(d)
-
-    d["dep_2"].setdefault("user_2", False)
-    print(d)
-
-    d["dep_2"].setdefault("user_2", True)
-    print(d)
-
+    i = "Action|Adventure|Animation|Children|Comedy"
+    print(i.lower().split("|"))
     pass

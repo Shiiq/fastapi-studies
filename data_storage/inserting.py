@@ -18,15 +18,9 @@ async def insert_objs(
             Movie(
                 title=chunk[TITLE],
                 year=chunk[YEAR],
-                genres=[genres.setdefault(genre_name, Genre(name=genre_name))
+                genres=[genres.setdefault(genre_name.lower(), Genre(name=genre_name.lower()))
                         for genre_name in chunk[GENRES]]
             )
         )
 
     del genres
-
-    # await db_conn.execute(
-    #     insert(Movie)
-    #     .values([line for line in data])
-    #     .on_conflict_do_nothing()
-    # )

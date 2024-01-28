@@ -1,15 +1,17 @@
 from abc import abstractmethod
 from typing import Protocol, Sequence, TypeVar
 
-FilterParamsT = TypeVar("FilterParamsT")
 MovieT = TypeVar("MovieT")
+MovieFilterParamsT = TypeVar("MovieFilterParamsT")
+MoviePaginationParamsT = TypeVar("MoviePaginationParamsT")
 
 
-class MovieReader(Protocol[FilterParamsT, MovieT]):
+class MovieReader(Protocol[MovieT, MovieFilterParamsT]):
 
     @abstractmethod
-    async def get_movies_by_genre_and_year(
+    async def get_by_genre_and_year(
             self,
-            params: FilterParamsT
+            filter_params: MovieFilterParamsT,
+            pagination_params: MoviePaginationParamsT | None,
     ) -> Sequence[MovieT]:
         raise NotImplementedError
