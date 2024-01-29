@@ -1,5 +1,6 @@
 from fastapi_studies.api.routers.request import MovieFilterRequest
 from fastapi_studies.api.routers.request import PaginationRequest
+from fastapi_studies.application.movie.interfaces import MovieCache
 from fastapi_studies.application.movie.interfaces import MovieReader
 from fastapi_studies.application.movie.models import Movie
 from fastapi_studies.application.movie.models import MoviesList
@@ -10,7 +11,8 @@ from .constants import GENRE_DEFAULT, YEAR_FROM_DEFAULT, YEAR_TO_DEFAULT
 
 class MovieFindService:
 
-    def __init__(self, movie_reader: MovieReader):
+    def __init__(self, movie_cache: MovieCache, movie_reader: MovieReader):
+        self._movie_cache = movie_cache
         self._movie_reader = movie_reader
 
     async def __call__(
@@ -18,7 +20,6 @@ class MovieFindService:
             request_data: MovieFilterRequest,
             pagination_data: PaginationRequest
     ) -> MoviesList:
-
 
         filter_params = self._get_filter_params(request_data)
         pagination_params = self._get_pagination_params(pagination_data)
@@ -30,7 +31,7 @@ class MovieFindService:
             request_data: MovieFilterRequest
     ) -> MovieFilterData:
 
-        genre = request_data.genre or GENRE_DEFAULT
+        genre = request_data.genre.sort() or GENRE_DEFAULT
         year_from = request_data.year_from or YEAR_FROM_DEFAULT
         year_to = request_data.year_to or YEAR_TO_DEFAULT
         if year_from > year_to:

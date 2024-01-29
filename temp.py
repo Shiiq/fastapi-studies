@@ -50,21 +50,29 @@ def get_g(param):
     return Genre(param)
 
 
-class Input(BaseModel):
-    a: str | None = None
-    b: int | None = None
-    c: int | None = None
-
-
 @dataclass
-class Output:
-    a: str
-    b: int
-    c: int
+class MovieFilterData:
+
+    genre: list[str]
+    year_from: int
+    year_to: int
+
 
 
 
 if __name__ == "__main__":
-    i = "Action|Adventure|Animation|Children|Comedy"
-    print(i.lower().split("|"))
+    # i = "Action|Adventure|Animation|Children|Comedy"
+    # print(i.lower().split("|"))
+    mf = MovieFilterData(
+        genre=['comedy', 'action', 'adventure', 'animation', 'children'],
+        year_from=2006,
+        year_to=2007
+    )
+    res = f"{(':').join(mf.genre)}:{str(mf.year_from)}:{str(mf.year_to)}"
+    print(res)
+    t = "comedyactionadventureanimationchildren20062007"
+    d = "childrencomedyactionadventureanimation20062007"
+    print(hash(t), hash(d))
+
+
     pass
