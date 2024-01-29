@@ -10,6 +10,13 @@ class Movie:
 
 
 @dataclass
+class MoviesList:
+
+    movies: list[Movie]
+    total_count: int
+
+
+@dataclass
 class MovieFilterData:
 
     genre: list[str]

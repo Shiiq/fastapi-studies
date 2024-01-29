@@ -2,6 +2,7 @@ from fastapi_studies.api.routers.request import MovieFilterRequest
 from fastapi_studies.api.routers.request import PaginationRequest
 from fastapi_studies.application.movie.interfaces import MovieReader
 from fastapi_studies.application.movie.models import Movie
+from fastapi_studies.application.movie.models import MoviesList
 from fastapi_studies.application.movie.models import MovieFilterData
 from fastapi_studies.application.movie.models import MoviePagination
 from .constants import GENRE_DEFAULT, YEAR_FROM_DEFAULT, YEAR_TO_DEFAULT
@@ -16,12 +17,13 @@ class MovieFindService:
             self,
             request_data: MovieFilterRequest,
             pagination_data: PaginationRequest
-    ) -> list[Movie]:
+    ) -> MoviesList:
+
 
         filter_params = self._get_filter_params(request_data)
         pagination_params = self._get_pagination_params(pagination_data)
         movies = await self._get_movies(filter_params)
-        return movies
+        return MoviesList(movies=movies, total_count=len(movies))
 
     def _get_filter_params(
             self,
