@@ -23,5 +23,5 @@ def movie_orm_to_dto(input_data: MovieORM) -> MovieDTO:
     return MovieDTO(
         title=input_data.title,
         year=input_data.year,
-        genres=input_data.genre
+        genres=list(input_data.genre)
     )

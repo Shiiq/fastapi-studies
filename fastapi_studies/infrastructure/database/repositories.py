@@ -10,7 +10,7 @@ from fastapi_studies.application.movie.interfaces import MovieReader
 from fastapi_studies.infrastructure.database.models import Movie
 
 
-class MovieRepo(MovieReader):
+class MovieDBRepo(MovieReader):
 
     def __init__(self, session: AsyncSession):
         self._session = session
@@ -32,9 +32,6 @@ class MovieRepo(MovieReader):
             q = q.where(and_(
                 Movie.genre == genre for genre in filter_params.genre
             ))
-        # if pagination_params:
-        #     q = q.limit(pagination_params.limit)
-        #     q = q.offset(pagination_params.offset)
 
         movies = await self._session.execute(q)
         movies = movies.scalars().all()

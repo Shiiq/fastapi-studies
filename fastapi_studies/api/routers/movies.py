@@ -10,13 +10,13 @@ movies_router = APIRouter(prefix="/movies")
 
 @movies_router.get("/get")
 async def get_movies_by_genre(
+        request: Request,
         movie_filter_params: MovieFilterRequest = Depends(),
         movie_find: Stub(MovieFindService) = Depends(),
         pagination: PaginationRequest = Depends(),
-        request: Request = Depends()
 ):
     print("QUERY PARAMS", movie_filter_params)
     print("PAGINATION", pagination)
-    res = await movie_find(movie_filter_params)
+    res = await movie_find(movie_filter_params, pagination)
     print(res)
     return {"hello": "world"}

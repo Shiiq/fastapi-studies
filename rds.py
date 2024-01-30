@@ -24,10 +24,10 @@ async def run_set():
 
 async def run_list():
     # await r.rpush("movie:data", *data_st)
-    res2 = await r.lrange("movie:data1", 0, 4)
-    print(not res2)
-    x = await r.rpop("movie:data1")
-    print(not x)
+    # res2 = await r.lrange("movie:data", 0, -1)
+    # print(res2)
+    # x = await r.rpop("movie:data")
+    # print(x)
     # print(*data_st[0:5])
     # res3 = await r.lrange("movie:data", 5, 9)
     # print(res3)
@@ -35,6 +35,7 @@ async def run_list():
     # print(res4)
     # res5 = await r.lrange("movie:data", 15, 20)
     # print(res5)
+    # await r.ltrim("movie:data", 1, 0)
 
     # ex = await r.llen("data:list")
     # print(ex)
@@ -42,5 +43,8 @@ async def run_list():
     # print(xe)
     # x = await r.exists("data:movies:1", "data:movies:2")
     # print(x, type(x))
+
+    pass
+
 
 asyncio.run(run_list())

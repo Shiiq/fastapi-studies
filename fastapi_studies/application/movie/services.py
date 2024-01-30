@@ -30,14 +30,13 @@ class MovieFindService:
         filter_params = self._get_filter_params(request_data)
         self._set_cache_uid(filter_params)
         pagination_params = self._get_pagination_params(pagination_data)
-        movies = await self._get_movies(filter_params)
-        # return MoviesList(movies=movies, total_count=len(movies))
+        movies_list = await self._get_movies(filter_params, pagination_params)
+        return movies_list
 
     def _get_filter_params(
             self,
             request_data: MovieFilterRequest
     ) -> MovieFilterData:
-
         genre = request_data.genre.sort() or GENRE_DEFAULT
         year_from = request_data.year_from or YEAR_FROM_DEFAULT
         year_to = request_data.year_to or YEAR_TO_DEFAULT
@@ -58,10 +57,6 @@ class MovieFindService:
             start=start,
             end=start + pagination_data.per_page
         )
-        # return MoviePagination(
-        #     limit=pagination_data.per_page,
-        #     offset=(pagination_data.page - 1) * pagination_data.per_page
-        # )
 
     def _set_cache_uid(
             self,
@@ -74,7 +69,7 @@ class MovieFindService:
         )
         filter_params.cache_uid = cache_uid
 
-    async def _get_movies_from_db(
+    async def _get_from_db(
             self,
             filter_params: MovieFilterData,
             pagination_params: MoviePagination | None = None
@@ -85,28 +80,38 @@ class MovieFindService:
         )
         return map(movie_orm_to_dto, movies)
 
-    async def _read_from_cache(self, key: str) -> Iterable[Movie]:
-        str_movies = await self._movie_cache.read(key)
-        return map(movie_json_to_dto, str_movies)
+    async def _read_from_cache(
+            self,
+            key: str,
+            pagination_params: MoviePagination | None = None
+    ) -> Iterable[Movie]:
+        movies_as_str = await self._movie_cache.read(key, pagination_params)
+        return map(movie_json_to_dto, movies_as_str)
 
-    async def _write_to_cache(self, key: str, movies: Sequence[Movie]):
-        json_movies = map(movie_dto_to_json, movies)
-        await self._movie_cache.write(key, *json_movies)
+    async def _write_to_cache(
+            self,
+            key: str,
+            movies: Sequence[Movie]
+    ):
+        movies_as_json = map(movie_dto_to_json, movies)
+        await self._movie_cache.write(key, *movies_as_json)
 
     async def _get_movies(
             self,
             filter_params: MovieFilterData,
             pagination_params: MoviePagination | None = None
     ):
-        # movies = list(await self._read_from_cache())
-        is_cached = await self._movie_cache.check_existence(filter_params.cache_uid)
-        if not is_cached:
-            movies = list(await self._get_movies_from_db(filter_params))
+        movies = list(await self._read_from_cache(
+            key=filter_params.cache_uid,
+            pagination_params=pagination_params
+        ))
+        if not movies:
+            movies = list(await self._get_from_db(filter_params))
             await self._write_to_cache(
                 key=filter_params.cache_uid,
                 movies=movies
             )
-            return MoviesList(
-                movies=movies[pagination_params.start:pagination_params.end],
-                total_count=len(movies)
-            )
+        return MoviesList(
+            movies=movies[pagination_params.start:pagination_params.end],
+            total_count=len(movies)
+        )

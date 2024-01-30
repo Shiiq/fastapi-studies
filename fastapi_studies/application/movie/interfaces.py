@@ -7,7 +7,7 @@ MovieFilterParamsT = TypeVar("MovieFilterParamsT")
 MoviePaginationParamsT = TypeVar("MoviePaginationParamsT")
 
 
-class MovieCache(Protocol[CollectionKeyT, MovieT]):
+class MovieCache(Protocol[CollectionKeyT, MoviePaginationParamsT]):
 
     @abstractmethod
     async def check_existence(
@@ -19,20 +19,21 @@ class MovieCache(Protocol[CollectionKeyT, MovieT]):
     @abstractmethod
     async def read(
             self,
-            key: CollectionKeyT
-    ) -> Sequence[MovieT]:
+            key: CollectionKeyT,
+            pagination_params: MoviePaginationParamsT | None
+    ):
         raise NotImplementedError
 
     @abstractmethod
     async def write(
             self,
             key: CollectionKeyT,
-            *movies: MovieT
+            *movies
     ):
         raise NotImplementedError
 
 
-class MovieReader(Protocol[MovieT, MovieFilterParamsT]):
+class MovieReader(Protocol[MovieT, MovieFilterParamsT, MoviePaginationParamsT]):
 
     @abstractmethod
     async def get_by_genre_and_year(

@@ -6,29 +6,26 @@ from redis.asyncio.client import Redis
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from fastapi_studies.api.dependencies.stub import Stub
+from fastapi_studies.application.movie.interfaces import MovieCache
 from fastapi_studies.application.movie.interfaces import MovieReader
 from fastapi_studies.application.movie.services import MovieFindService
-from fastapi_studies.infrastructure.database.repositories import MovieRepo
+from fastapi_studies.infrastructure.database.repositories import MovieDBRepo
+from fastapi_studies.infrastructure.redis.repositories import MovieCacheRepo
 
 
-def get_redis_client() -> Redis:
-    raise NotImplementedError
+def get_cache_repo(redis_client: Stub(Redis) = Depends()) -> MovieCacheRepo:
+    yield MovieCacheRepo(redis_client)
 
 
-def get_db_session() -> AsyncSession:
-    raise NotImplementedError
-
-
-def get_movie_repo(
-        session: Stub(AsyncSession) = Depends()
-) -> MovieRepo:
-    yield MovieRepo(session)
+def get_db_repo(session: Stub(AsyncSession) = Depends()) -> MovieDBRepo:
+    yield MovieDBRepo(session)
 
 
 def get_findmovie_service(
-        movie_repo: Stub(MovieReader) = Depends()
+        movie_cache_repo: Stub(MovieCache) = Depends(),
+        movie_db_repo: Stub(MovieReader) = Depends()
 ):
-    yield MovieFindService(movie_repo)
+    yield MovieFindService(movie_cache_repo, movie_db_repo)
 
 
 def setup_dependencies(
@@ -36,7 +33,8 @@ def setup_dependencies(
         db_session: partial[AsyncGenerator[AsyncSession, None]],
         redis_client: Redis
 ):
-    app.dependency_overrides[Stub(Redis)] = lambda: redis_client
     app.dependency_overrides[Stub(AsyncSession)] = db_session
-    app.dependency_overrides[Stub(MovieReader)] = get_movie_repo
+    app.dependency_overrides[Stub(Redis)] = lambda: redis_client
+    app.dependency_overrides[Stub(MovieCache)] = get_cache_repo
+    app.dependency_overrides[Stub(MovieReader)] = get_db_repo
     app.dependency_overrides[Stub(MovieFindService)] = get_findmovie_service

@@ -5,7 +5,7 @@ from dataclasses import dataclass
 class DBConfig:
 
     db_url: str = "./fastapi_studies.db"
-    echo: bool = False
+    echo: bool = True
 
     @property
     def sqlite_url(self):
