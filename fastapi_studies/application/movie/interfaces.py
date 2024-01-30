@@ -27,7 +27,7 @@ class MovieCache(Protocol[CollectionKeyT, MovieT]):
     async def write(
             self,
             key: CollectionKeyT,
-            movies: Sequence[MovieT],
+            *movies: MovieT
     ):
         raise NotImplementedError
 

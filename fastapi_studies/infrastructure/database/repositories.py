@@ -32,9 +32,9 @@ class MovieRepo(MovieReader):
             q = q.where(and_(
                 Movie.genre == genre for genre in filter_params.genre
             ))
-        if pagination_params:
-            q = q.limit(pagination_params.limit)
-            q = q.offset(pagination_params.offset)
+        # if pagination_params:
+        #     q = q.limit(pagination_params.limit)
+        #     q = q.offset(pagination_params.offset)
 
         movies = await self._session.execute(q)
         movies = movies.scalars().all()

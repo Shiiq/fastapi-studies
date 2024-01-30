@@ -1,3 +1,5 @@
+from typing import Iterable, Sequence
+
 from fastapi_studies.api.routers.request import MovieFilterRequest
 from fastapi_studies.api.routers.request import PaginationRequest
 from fastapi_studies.application.movie.interfaces import MovieCache
@@ -6,6 +8,10 @@ from fastapi_studies.application.movie.models import Movie
 from fastapi_studies.application.movie.models import MoviesList
 from fastapi_studies.application.movie.models import MovieFilterData
 from fastapi_studies.application.movie.models import MoviePagination
+from fastapi_studies.infrastructure.converters import movie_dto_to_json
+from fastapi_studies.infrastructure.converters import movie_json_to_dto
+from fastapi_studies.infrastructure.converters import movie_orm_to_dto
+
 from .constants import GENRE_DEFAULT, YEAR_FROM_DEFAULT, YEAR_TO_DEFAULT
 
 
@@ -22,9 +28,10 @@ class MovieFindService:
     ) -> MoviesList:
 
         filter_params = self._get_filter_params(request_data)
+        self._set_cache_uid(filter_params)
         pagination_params = self._get_pagination_params(pagination_data)
         movies = await self._get_movies(filter_params)
-        return MoviesList(movies=movies, total_count=len(movies))
+        # return MoviesList(movies=movies, total_count=len(movies))
 
     def _get_filter_params(
             self,
@@ -46,25 +53,60 @@ class MovieFindService:
             self,
             pagination_data: PaginationRequest
     ) -> MoviePagination:
-
-        offset = (pagination_data.page - 1) * pagination_data.per_page
+        start = (pagination_data.page - 1) * pagination_data.per_page
         return MoviePagination(
-            limit=pagination_data.per_page,
-            offset=offset
+            start=start,
+            end=start + pagination_data.per_page
         )
+        # return MoviePagination(
+        #     limit=pagination_data.per_page,
+        #     offset=(pagination_data.page - 1) * pagination_data.per_page
+        # )
+
+    def _set_cache_uid(
+            self,
+            filter_params: MovieFilterData
+    ):
+        cache_uid = (
+            "movies:"
+            f"{('-').join(filter_params.genre) if filter_params.genre else 'all'}:"
+            f"{str(filter_params.year_from)}-{str(filter_params.year_to)}"
+        )
+        filter_params.cache_uid = cache_uid
+
+    async def _get_movies_from_db(
+            self,
+            filter_params: MovieFilterData,
+            pagination_params: MoviePagination | None = None
+    ) -> Iterable[Movie]:
+        movies = await self._movie_reader.get_by_genre_and_year(
+            filter_params=filter_params,
+            pagination_params=pagination_params
+        )
+        return map(movie_orm_to_dto, movies)
+
+    async def _read_from_cache(self, key: str) -> Iterable[Movie]:
+        str_movies = await self._movie_cache.read(key)
+        return map(movie_json_to_dto, str_movies)
+
+    async def _write_to_cache(self, key: str, movies: Sequence[Movie]):
+        json_movies = map(movie_dto_to_json, movies)
+        await self._movie_cache.write(key, *json_movies)
 
     async def _get_movies(
             self,
             filter_params: MovieFilterData,
             pagination_params: MoviePagination | None = None
-    ) -> list[Movie]:
-
-        movies = await self._movie_reader.get_by_genre_and_year(
-            filter_params=filter_params,
-            pagination_params=pagination_params
-        )
-        movies = [
-            Movie(genres=movie.genre, title=movie.title, year=movie.year)
-            for movie in movies
-        ]
-        return movies
+    ):
+        # movies = list(await self._read_from_cache())
+        is_cached = await self._movie_cache.check_existence(filter_params.cache_uid)
+        if not is_cached:
+            movies = list(await self._get_movies_from_db(filter_params))
+            await self._write_to_cache(
+                key=filter_params.cache_uid,
+                movies=movies
+            )
+            return MoviesList(
+                movies=movies[pagination_params.start:pagination_params.end],
+                total_count=len(movies)
+            )

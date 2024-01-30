@@ -1,7 +1,8 @@
 import asyncio
 import csv
 import datetime
-from dataclasses import dataclass, Field
+import json
+from dataclasses import asdict, dataclass, Field
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
@@ -53,7 +54,7 @@ def get_g(param):
 @dataclass
 class MovieFilterData:
 
-    genre: list[str]
+    genre: list[str] | None
     year_from: int
     year_to: int
 
@@ -64,15 +65,17 @@ if __name__ == "__main__":
     # i = "Action|Adventure|Animation|Children|Comedy"
     # print(i.lower().split("|"))
     mf = MovieFilterData(
+        # genre=['comedy', ],
         genre=['comedy', 'action', 'adventure', 'animation', 'children'],
+        # genre=None,
         year_from=2006,
         year_to=2007
     )
-    res = f"{(':').join(mf.genre)}:{str(mf.year_from)}:{str(mf.year_to)}"
-    print(res)
-    t = "comedyactionadventureanimationchildren20062007"
-    d = "childrencomedyactionadventureanimation20062007"
-    print(hash(t), hash(d))
-
-
+    # res = f"movies:{('-').join(mf.genre) if mf.genre else 'all'}:{str(mf.year_from)}-{str(mf.year_to)}"
+    inp = [str(i) for i in range(10)]
+    # print(inp, type(inp))
+    mapp = map(int, inp)
+    # print(map, type(map))
+    # print(*mapp)
+    print(len(mapp))
     pass
