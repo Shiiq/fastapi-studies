@@ -4,7 +4,7 @@ from redis.asyncio.client import Redis
 
 r = Redis(host="localhost", port=6379)
 
-data_st = [f"{i}_data" for i in range(1, 21)]
+data_st = [f"{i}_d" for i in range(1, 21)]
 
 
 async def run_set():
@@ -29,8 +29,8 @@ async def run_list():
     # x = await r.rpop("movie:data")
     # print(x)
     # print(*data_st[0:5])
-    # res3 = await r.lrange("movie:data", 5, 9)
-    # print(res3)
+    res3 = await r.lrange("movie:data", 19, 45)
+    print(res3)
     # res4 = await r.lrange("movie:data", 10, 14)
     # print(res4)
     # res5 = await r.lrange("movie:data", 15, 20)

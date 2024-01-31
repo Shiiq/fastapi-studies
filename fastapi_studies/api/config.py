@@ -4,4 +4,4 @@ from dataclasses import dataclass
 @dataclass
 class ApiConfig:
 
-    title: str = "FastAPI+Redis study project"
+    title: str = "FastAPI+Redis small pet project"

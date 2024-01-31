@@ -1,7 +1,7 @@
 from typing import Iterable, Sequence
 
-from fastapi_studies.api.routers.request import MovieFilterRequest
-from fastapi_studies.api.routers.request import PaginationRequest
+from fastapi_studies.api.routers.movie.request import MovieFilterRequest
+from fastapi_studies.api.routers.movie.request import PaginationRequest
 from fastapi_studies.application.movie.interfaces import MovieCache
 from fastapi_studies.application.movie.interfaces import MovieReader
 from fastapi_studies.application.movie.models import Movie
@@ -24,38 +24,26 @@ class MovieFindService:
     async def __call__(
             self,
             request_data: MovieFilterRequest,
-            pagination_data: PaginationRequest
+            pagination_params: MoviePagination,
     ) -> MoviesList:
-
+        x = MoviePagination(0, 15, 1)
         filter_params = self._get_filter_params(request_data)
         self._set_cache_uid(filter_params)
-        pagination_params = self._get_pagination_params(pagination_data)
-        movies_list = await self._get_movies(filter_params, pagination_params)
+        movies_list = await self._get_movies(filter_params, x)
         return movies_list
 
     def _get_filter_params(
             self,
             request_data: MovieFilterRequest
     ) -> MovieFilterData:
-        genre = request_data.genre.sort() or GENRE_DEFAULT
+        request_data.genre.sort()
+        genre = request_data.genre or GENRE_DEFAULT
         year_from = request_data.year_from or YEAR_FROM_DEFAULT
         year_to = request_data.year_to or YEAR_TO_DEFAULT
         if year_from > year_to:
             year_from, year_to = year_to, year_from
         return MovieFilterData(
-            genre=genre,
-            year_from=year_from,
-            year_to=year_to
-        )
-
-    def _get_pagination_params(
-            self,
-            pagination_data: PaginationRequest
-    ) -> MoviePagination:
-        start = (pagination_data.page - 1) * pagination_data.per_page
-        return MoviePagination(
-            start=start,
-            end=start + pagination_data.per_page
+            genre=genre, year_from=year_from, year_to=year_to
         )
 
     def _set_cache_uid(
@@ -92,26 +80,56 @@ class MovieFindService:
             self,
             key: str,
             movies: Sequence[Movie]
-    ):
+    ) -> int:
         movies_as_json = map(movie_dto_to_json, movies)
-        await self._movie_cache.write(key, *movies_as_json)
+        movies_count = await self._movie_cache.write(key, *movies_as_json)
+        return movies_count
+
+    def _validate_pagination_params(
+            self,
+            items_count: int,
+            pagination_params: MoviePagination
+    ) -> bool:
+        return pagination_params.start < items_count
 
     async def _get_movies(
             self,
             filter_params: MovieFilterData,
             pagination_params: MoviePagination | None = None
-    ):
-        movies = list(await self._read_from_cache(
-            key=filter_params.cache_uid,
-            pagination_params=pagination_params
-        ))
-        if not movies:
-            movies = list(await self._get_from_db(filter_params))
-            await self._write_to_cache(
-                key=filter_params.cache_uid,
-                movies=movies
-            )
-        return MoviesList(
-            movies=movies[pagination_params.start:pagination_params.end],
-            total_count=len(movies)
+    ) -> MoviesList:
+        movies_count = await self._movie_cache.get_items_count(
+            filter_params.cache_uid
         )
+
+        # this means that the cache is emtpy
+        if movies_count == 0:
+            movies = list(await self._get_from_db(filter_params))
+            movies_count = await self._write_to_cache(
+                key=filter_params.cache_uid, movies=movies
+            )
+            if not self._validate_pagination_params(
+                    items_count=movies_count,
+                    pagination_params=pagination_params
+            ):
+                return MoviesList(
+                    movies=[],
+                    total_count=movies_count,
+                    current_page=pagination_params.page
+                )
+            return MoviesList(
+                movies=movies[pagination_params.start:pagination_params.end],
+                total_count=movies_count,
+                current_page=pagination_params.page
+            )
+
+        # this means that the cache is not emtpy
+        else:
+            movies = list(await self._read_from_cache(
+                key=filter_params.cache_uid,
+                pagination_params=pagination_params
+            ))
+            return MoviesList(
+                movies=movies,
+                total_count=movies_count,
+                current_page=pagination_params.page
+            )

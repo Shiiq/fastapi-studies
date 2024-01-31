@@ -71,11 +71,17 @@ if __name__ == "__main__":
         year_from=2006,
         year_to=2007
     )
-    # res = f"movies:{('-').join(mf.genre) if mf.genre else 'all'}:{str(mf.year_from)}-{str(mf.year_to)}"
-    inp = [str(i) for i in range(10)]
-    # print(inp, type(inp))
-    mapp = map(int, inp)
-    # print(map, type(map))
-    # print(*mapp)
-    print(len(mapp))
+    d = [
+        [],
+        ['comedy', ],
+        ['comedy', 'action', 'adventure', 'animation', 'children'],
+        None,
+    ]
+    def res(data):
+        return f"movies:{('-').join(data) if data else 'all'}"
+    # res = f"movies:{('-').join(mf.genre) if mf.genre else 'all'}"
+    for data in d:
+        print(res(data))
+
+
     pass

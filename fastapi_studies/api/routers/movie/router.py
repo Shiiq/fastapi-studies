@@ -1,14 +1,14 @@
 from fastapi import APIRouter, Depends, Request
 
 from fastapi_studies.api.dependencies.stub import Stub
-from fastapi_studies.api.routers.request import MovieFilterRequest
-from fastapi_studies.api.routers.request import PaginationRequest
+from fastapi_studies.api.routers.movie.request import MovieFilterRequest
+from fastapi_studies.api.routers.movie.request import PaginationRequest
 from fastapi_studies.application.movie.services import MovieFindService
 
-movies_router = APIRouter(prefix="/movies")
+movie_router = APIRouter(prefix="/movies")
 
 
-@movies_router.get("/get")
+@movie_router.get("/get")
 async def get_movies_by_genre(
         request: Request,
         movie_filter_params: MovieFilterRequest = Depends(),

@@ -7,3 +7,8 @@ class MovieFilterRequest(BaseModel):
     genre: list[str] | None = Field(Query(None))
     year_from: PositiveInt | None = Field(Query(None))
     year_to: PositiveInt | None = Field(Query(None))
+
+
+class PaginationRequest(BaseModel):
+
+    page: int = Field(Query(1))

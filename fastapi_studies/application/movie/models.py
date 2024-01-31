@@ -13,6 +13,7 @@ class Movie:
 class MoviesList:
 
     movies: list[Movie]
+    current_page: int
     total_count: int
 
 
@@ -28,7 +29,6 @@ class MovieFilterData:
 @dataclass
 class MoviePagination:
 
-    # limit: int = 15
-    # offset: int = 0
-    start: int = 0
-    end: int = 15
+    start: int
+    end: int
+    page: int

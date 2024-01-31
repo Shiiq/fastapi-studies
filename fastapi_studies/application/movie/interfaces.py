@@ -10,10 +10,10 @@ MoviePaginationParamsT = TypeVar("MoviePaginationParamsT")
 class MovieCache(Protocol[CollectionKeyT, MoviePaginationParamsT]):
 
     @abstractmethod
-    async def check_existence(
+    async def get_items_count(
             self,
             key: CollectionKeyT
-    ) -> bool:
+    ) -> int:
         raise NotImplementedError
 
     @abstractmethod
@@ -29,7 +29,7 @@ class MovieCache(Protocol[CollectionKeyT, MoviePaginationParamsT]):
             self,
             key: CollectionKeyT,
             *movies
-    ):
+    ) -> int:
         raise NotImplementedError
 
 
