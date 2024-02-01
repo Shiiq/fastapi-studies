@@ -4,7 +4,7 @@ import datetime
 import json
 from dataclasses import asdict, dataclass, Field
 from contextlib import asynccontextmanager
-from typing import AsyncGenerator
+from typing import AsyncGenerator, NewType
 
 from pydantic import BaseModel
 
@@ -77,4 +77,7 @@ if __name__ == "__main__":
         ['comedy', 'action', 'adventure', 'animation', 'children'],
         None,
     ]
+    UID = NewType("UID", str)
+    uid = UID("123124214")
+    print(uid, type(uid))
     pass

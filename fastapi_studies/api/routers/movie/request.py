@@ -2,7 +2,7 @@ from fastapi import Query
 from pydantic import BaseModel, Field, PositiveInt
 
 
-class MovieFilterRequest(BaseModel):
+class MovieRequest(BaseModel):
 
     genre: list[str] | None = Field(Query(None))
     year_from: PositiveInt | None = Field(Query(None))

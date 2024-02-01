@@ -1,13 +1,21 @@
-from typing import Sequence
+from typing import Iterator
 
 from sqlalchemy import and_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from fastapi_studies.application.movie.models import MovieFilterData
-from fastapi_studies.application.movie.models import MoviePagination
 from fastapi_studies.application.movie.interfaces import MovieReader
-from fastapi_studies.infrastructure.database.models import Movie
+from fastapi_studies.application.movie.models import Movie as MovieDTO
+from fastapi_studies.application.movie.models import MovieFilterParams
+from fastapi_studies.infrastructure.database.models import Movie as MovieORM
+
+
+def movie_orm_to_dto(input_data: MovieORM) -> MovieDTO:
+    return MovieDTO(
+        title=input_data.title,
+        year=input_data.year,
+        genres=list(input_data.genre)
+    )
 
 
 class MovieDBRepo(MovieReader):
@@ -17,22 +25,21 @@ class MovieDBRepo(MovieReader):
 
     async def get_by_genre_and_year(
             self,
-            filter_params: MovieFilterData,
-            pagination_params: MoviePagination | None = None,
-    ) -> Sequence[Movie]:
+            filter_params: MovieFilterParams,
+    ) -> Iterator[MovieDTO]:
         q = (
-            select(Movie)
-            .options(selectinload(Movie.genres))
-            .where(Movie.year.between(
+            select(MovieORM)
+            .options(selectinload(MovieORM.genres))
+            .where(MovieORM.year.between(
                 filter_params.year_from,
                 filter_params.year_to))
-            .order_by(Movie.year.desc(), Movie.title.asc())
+            .order_by(MovieORM.year.desc(), MovieORM.title.asc())
         )
         if filter_params.genre:
             q = q.where(and_(
-                Movie.genre == genre for genre in filter_params.genre
+                MovieORM.genre == genre for genre in filter_params.genre
             ))
 
         movies = await self._session.execute(q)
         movies = movies.scalars().all()
-        return movies
+        return map(movie_orm_to_dto, movies)

@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from fastapi_studies.application.movie.common import CacheStorageKey
+
 
 @dataclass
 class Movie:
@@ -18,16 +20,16 @@ class MoviesList:
 
 
 @dataclass
-class MovieFilterData:
+class MovieFilterParams:
 
     genre: list[str] | None
     year_from: int
     year_to: int
-    cache_uid: str | None = None
+    cache_key: CacheStorageKey | None = None
 
 
 @dataclass
-class MoviePagination:
+class MoviePaginationParams:
 
     start: int
     end: int
