@@ -77,11 +77,4 @@ if __name__ == "__main__":
         ['comedy', 'action', 'adventure', 'animation', 'children'],
         None,
     ]
-    def res(data):
-        return f"movies:{('-').join(data) if data else 'all'}"
-    # res = f"movies:{('-').join(mf.genre) if mf.genre else 'all'}"
-    for data in d:
-        print(res(data))
-
-
     pass

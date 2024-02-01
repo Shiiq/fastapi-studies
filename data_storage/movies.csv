@@ -4012,7 +4012,7 @@ movieId,title,genres
 5668,White Oleander (2002),Drama
 5669,Bowling for Columbine (2002),Documentary
 5670,Comedian (2002),Comedy|Documentary
-5672,Pokemon 4 Ever (a.k.a. Pokémon 4: The Movie) (2002),Adventure|Animation|Children|Fantasy
+5672,Pokemon 4 Ever (2002),Adventure|Animation|Children|Fantasy
 5673,Punch-Drunk Love (2002),Comedy|Drama|Romance
 5675,Swept Away (2002),Comedy|Romance
 5678,Formula 51 (2001),Action|Comedy|Crime|Thriller
@@ -4040,7 +4040,7 @@ movieId,title,genres
 5733,"Eyewitness (Janitor, The) (1981)",Thriller
 5735,Faces of Death (1978),Documentary|Horror
 5736,Faces of Death 3 (1985),Documentary|Horror
-5741,"Woman Next Door, The (Femme d'à côté, La) (1981)",Drama|Romance
+5741,"Woman Next Door, The (1981)",Drama|Romance
 5742,First Monday in October (1981),Comedy|Drama
 5745,"Four Seasons, The (1981)",Comedy|Drama
 5746,Galaxy of Terror (Quest) (1981),Action|Horror|Mystery|Sci-Fi
@@ -4084,8 +4084,8 @@ movieId,title,genres
 5833,Dog Soldiers (2002),Action|Horror
 5836,Houseboat (1958),Comedy|Romance
 5838,Madame Bovary (1991),Drama
-5839,My Father's Glory (La gloire de mon père) (1990),Adventure|Drama
-5840,"My Mother's Castle (Château de ma mère, Le) (1990)",Comedy|Drama
+5839,My Father's Glory (1990),Adventure|Drama
+5840,"My Mother's Castle (1990)",Comedy|Drama
 5841,Return to the Blue Lagoon (1991),Adventure|Romance
 5843,Toy Soldiers (1991),Action|Drama
 5847,Ragtime (1981),Drama
@@ -4154,7 +4154,7 @@ movieId,title,genres
 5975,War and Peace (1956),Drama|Romance|War
 5979,Attack of the Crab Monsters (1957),Horror|Sci-Fi
 5980,Black Christmas (1974),Horror|Mystery|Thriller
-5984,"Story of O, The (Histoire d'O) (1975)",Drama|Romance
+5984,"Story of O, The (1975)",Drama|Romance
 5986,Fat City (1972),Drama
 5988,Quicksilver (1986),Drama
 5989,Catch Me If You Can (2002),Crime|Drama
@@ -4170,7 +4170,7 @@ movieId,title,genres
 6003,Confessions of a Dangerous Mind (2002),Comedy|Crime|Drama|Thriller
 6005,Blue Collar Comedy Tour: The Movie (2003),Comedy|Documentary
 6006,Just Married (2003),Comedy|Romance
-6009,"City of Lost Souls, The (Hyôryuu-gai) (2000)",Crime|Drama|Thriller
+6009,"City of Lost Souls, The (2000)",Crime|Drama|Thriller
 6012,"Guy Thing, A (2003)",Comedy|Romance
 6013,Kangaroo Jack (2003),Action|Comedy
 6014,National Security (2003),Action|Comedy
@@ -4178,7 +4178,7 @@ movieId,title,genres
 6020,Alice Adams (1935),Comedy|Drama
 6021,"American Friend, The (Amerikanische Freund, Der) (1977)",Crime|Drama|Mystery|Thriller
 6022,American Me (1992),Drama
-6023,Band of Outsiders (Bande à part) (1964),Comedy|Crime|Drama|Romance
+6023,Band of Outsiders (1964),Comedy|Crime|Drama|Romance
 6025,CB4 - The Movie (1993),Comedy
 6027,Dogfight (1991),Drama|Romance
 6030,Girls! Girls! Girls! (1962),Comedy|Musical
@@ -4189,7 +4189,7 @@ movieId,title,genres
 6039,"Woman in Red, The (1984)",Comedy|Romance
 6040,Darkness Falls (2003),Horror|Thriller
 6041,Amen. (2002),Drama
-6042,Blind Spot: Hitler's Secretary (Im toten Winkel - Hitlers Sekretärin) (2002),Documentary
+6042,Blind Spot: Hitler's Secretary (2002),Documentary
 6044,Blind Date (1984),Horror|Thriller
 6049,Ethan Frome (1993),Drama
 6051,"Harder They Come, The (1973)",Action|Crime|Drama
@@ -4214,7 +4214,7 @@ movieId,title,genres
 6107,"Night of the Shooting Stars (Notte di San Lorenzo, La) (1982)",Drama|War
 6111,Paradise (1982),Adventure|Romance
 6116,"Pirate Movie, The (1982)",Adventure|Comedy|Musical
-6119,Santa Claus Is a Stinker (Le Père Noël est une ordure) (1982),Comedy
+6119,Santa Claus Is a Stinker (1982),Comedy
 6122,Richard Pryor Live on the Sunset Strip (1982),Comedy|Documentary
 6123,Sunless (Sans Soleil) (1983),Documentary
 6124,Savannah Smiles (1982),Comedy
@@ -4256,7 +4256,7 @@ movieId,title,genres
 6210,Volcano High (Whasango) (2001),Action|Comedy
 6212,Bringing Down the House (2003),Comedy
 6213,Tears of the Sun (2003),Action|Drama|Thriller
-6214,Irreversible (Irréversible) (2002),Crime|Drama|Mystery|Thriller
+6214,Irreversible (2002),Crime|Drama|Mystery|Thriller
 6215,Laurel Canyon (2002),Drama
 6216,Nowhere in Africa (Nirgendwo in Afrika) (2001),Drama
 6217,"Safety of Objects, The (2001)",Drama
@@ -4291,7 +4291,7 @@ movieId,title,genres
 6268,Raising Victor Vargas (2002),Comedy|Drama|Romance
 6269,Stevie (2002),Documentary
 6270,Akira Kurosawa's Dreams (Dreams) (1990),Drama|Fantasy
-6271,Day for Night (La Nuit Américaine) (1973),Comedy|Drama|Romance
+6271,Day for Night (1973),Comedy|Drama|Romance
 6273,In a Lonely Place (1950),Drama|Film-Noir|Mystery|Romance
 6279,"Good Thief, The (2002)",Crime|Drama
 6280,"Man Apart, A (2003)",Action|Crime|Drama|Thriller
@@ -4322,7 +4322,7 @@ movieId,title,genres
 6314,Undercover Blues (1993),Comedy|Crime
 6315,Wildcats (1986),Comedy
 6316,"Wiz, The (1978)",Adventure|Children|Comedy|Fantasy|Musical
-6319,"My Father the Hero (Mon père, ce héros.) (1991)",Comedy|Drama
+6319,"My Father the Hero (1991)",Comedy|Drama
 6320,Scenes from a Mall (1991),Comedy
 6322,Confidence (2003),Crime|Thriller
 6323,Identity (2003),Crime|Horror|Mystery|Thriller
@@ -4346,7 +4346,7 @@ movieId,title,genres
 6347,Beat Street (1984),Drama|Musical
 6348,Breakin' 2: Electric Boogaloo (1984),Musical
 6349,Breakin' (1984),Drama|Musical
-6350,Laputa: Castle in the Sky (Tenkû no shiro Rapyuta) (1986),Action|Adventure|Animation|Children|Fantasy|Sci-Fi
+6350,Laputa: Castle in the Sky (1986),Action|Adventure|Animation|Children|Fantasy|Sci-Fi
 6357,High Society (1956),Comedy|Musical|Romance
 6358,Kiss Me Kate (1953),Comedy|Musical|Romance
 6365,"Matrix Reloaded, The (2003)",Action|Adventure|Sci-Fi|Thriller|IMAX

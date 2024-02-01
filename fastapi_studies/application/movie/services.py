@@ -1,13 +1,14 @@
 from typing import Iterable, Sequence
 
-from fastapi_studies.api.routers.movie.request import MovieFilterRequest
-from fastapi_studies.api.routers.movie.request import PaginationRequest
+from fastapi_studies.application.movie.exceptions import MoviesNotFound
+from fastapi_studies.application.movie.exceptions import MoviesOutOfRange
 from fastapi_studies.application.movie.interfaces import MovieCache
 from fastapi_studies.application.movie.interfaces import MovieReader
 from fastapi_studies.application.movie.models import Movie
 from fastapi_studies.application.movie.models import MoviesList
 from fastapi_studies.application.movie.models import MovieFilterData
 from fastapi_studies.application.movie.models import MoviePagination
+from fastapi_studies.api.routers.movie.request import MovieFilterRequest
 from fastapi_studies.infrastructure.converters import movie_dto_to_json
 from fastapi_studies.infrastructure.converters import movie_json_to_dto
 from fastapi_studies.infrastructure.converters import movie_orm_to_dto
@@ -53,7 +54,7 @@ class MovieFindService:
         cache_uid = (
             "movies:"
             f"{('-').join(filter_params.genre) if filter_params.genre else 'all'}:"
-            f"{str(filter_params.year_from)}-{str(filter_params.year_to)}"
+            f"{filter_params.year_from}-{filter_params.year_to}"
         )
         filter_params.cache_uid = cache_uid
 
@@ -97,25 +98,41 @@ class MovieFindService:
             filter_params: MovieFilterData,
             pagination_params: MoviePagination | None = None
     ) -> MoviesList:
+
         movies_count = await self._movie_cache.get_items_count(
             filter_params.cache_uid
         )
 
-        # this means that the cache is emtpy
+        # means that the cache is emtpy
         if movies_count == 0:
             movies = list(await self._get_from_db(filter_params))
-            movies_count = await self._write_to_cache(
+
+            # means that we don't have movies with these parameters
+            if not movies:
+                raise MoviesNotFound
+                # return MoviesList(
+                #     movies=[],
+                #     total_count=movies_count,
+                #     current_page=pagination_params.page
+                # )
+
+            # upload movies to the cache - return value is the number of movies
+            movies_uploaded = await self._write_to_cache(
                 key=filter_params.cache_uid, movies=movies
             )
+
+            # check that current pagination params match with number of movies
             if not self._validate_pagination_params(
-                    items_count=movies_count,
+                    items_count=movies_uploaded,
                     pagination_params=pagination_params
             ):
-                return MoviesList(
-                    movies=[],
-                    total_count=movies_count,
-                    current_page=pagination_params.page
-                )
+                raise MoviesOutOfRange
+                # return MoviesList(
+                #     movies=[],
+                #     total_count=movies_count,
+                #     current_page=pagination_params.page
+                # )
+
             return MoviesList(
                 movies=movies[pagination_params.start:pagination_params.end],
                 total_count=movies_count,
@@ -124,6 +141,11 @@ class MovieFindService:
 
         # this means that the cache is not emtpy
         else:
+            if not self._validate_pagination_params(
+                    items_count=movies_count,
+                    pagination_params=pagination_params
+            ):
+                raise MoviesOutOfRange
             movies = list(await self._read_from_cache(
                 key=filter_params.cache_uid,
                 pagination_params=pagination_params
