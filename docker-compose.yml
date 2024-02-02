@@ -1,9 +1,26 @@
 version: "3.2"
 
 services:
+#  migrations:
+#
+#    we don't need special migrations service because we use SQLITE
+#    ...
+
+  uploading_data:
+    ...
+
   redis:
     image: redis:7.2.4-alpine
     restart: always
     ports:
       - "6379:6379"
     command: redis-server --loglevel warning
+
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+    command: ["uvicorn", "fastapi_studies.main:app"]

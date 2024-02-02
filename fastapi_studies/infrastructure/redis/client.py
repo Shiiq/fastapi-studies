@@ -1,5 +1,5 @@
 from contextlib import asynccontextmanager
-from typing import AsyncIterator, AsyncContextManager
+from typing import AsyncContextManager
 
 import redis.asyncio as redis
 from redis.asyncio.client import Redis

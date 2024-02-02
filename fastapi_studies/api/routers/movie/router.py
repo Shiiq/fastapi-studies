@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Request, status
 
 from fastapi_studies.api.dependencies.stub import Stub
-from fastapi_studies.api.routers.common.paginator import Paginator
+from fastapi_studies.api.routers.movie.paginator import MoviePaginator
 from fastapi_studies.api.routers.movie.request import MovieRequest
 from fastapi_studies.api.routers.movie.request import PaginationRequest
 from fastapi_studies.api.routers.movie.response import MoviePaginatedResponse
@@ -14,9 +14,7 @@ from fastapi_studies.application.movie.services import MovieFindService
 movie_router = APIRouter(prefix="/movies")
 
 
-def get_movie_filter_params(
-        request_data: MovieRequest = Depends()
-) -> MovieFilterParams:
+def get_movie_filter_params(request_data: MovieRequest) -> MovieFilterParams:
     request_data.genre.sort()
     genre = request_data.genre or GENRE_DEFAULT
     year_from = request_data.year_from or YEAR_FROM_DEFAULT
@@ -28,15 +26,20 @@ def get_movie_filter_params(
     )
 
 
-@movie_router.get("/get")
+@movie_router.get(
+    path="/get",
+    response_model=MoviePaginatedResponse,
+    status_code=status.HTTP_200_OK
+)
 async def get_movies_by_genre(
         request: Request,
-        filter_params: MovieFilterParams = Depends(),
+        request_data: MovieRequest = Depends(),
         movie_finder: Stub(MovieFindService) = Depends(),
         pagination_data: PaginationRequest = Depends(),
-        paginator: Paginator = Depends(),
+        paginator: MoviePaginator = Depends(),
 ) -> MoviePaginatedResponse:
 
+    filter_params = get_movie_filter_params(request_data)
     pagination_params = paginator.get_params(pagination_data)
     movies = await movie_finder(
         filter_params=filter_params, pagination_params=pagination_params

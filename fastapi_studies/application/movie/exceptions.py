@@ -12,6 +12,6 @@ class MoviesNotFound(ApplicationError):
     msg = "No movies were found for this parameters"
 
 
-class MoviesOutOfRange(ApplicationError):
+class PageOutOfRange(ApplicationError):
 
-    msg = "The movies request if out of range"
+    msg = "The requested page is out of range"

@@ -16,7 +16,7 @@ YEAR = "year"
 
 
 def read_csv(filepath: pathlib.Path | str) -> Iterator[dict[str, str]]:
-    with open(filepath) as f:
+    with open(file=filepath, encoding='utf-8') as f:
         reader = csv.reader(f, delimiter=",")
         next(reader)  # skip headers
         for line in reader:

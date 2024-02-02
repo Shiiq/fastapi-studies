@@ -27,7 +27,7 @@ movieId,title,genres
 26,Othello (1995),Drama
 27,Now and Then (1995),Children|Drama
 28,Persuasion (1995),Drama|Romance
-29,"City of Lost Children, The (Cité des enfants perdus, La) (1995)",Adventure|Drama|Fantasy|Mystery|Sci-Fi
+29,"City of Lost Children, The (1995)",Adventure|Drama|Fantasy|Mystery|Sci-Fi
 30,Shanghai Triad (Yao a yao yao dao waipo qiao) (1995),Crime|Drama
 31,Dangerous Minds (1995),Drama
 32,Twelve Monkeys (a.k.a. 12 Monkeys) (1995),Mystery|Sci-Fi|Thriller
@@ -253,7 +253,7 @@ movieId,title,genres
 290,Once Were Warriors (1994),Crime|Drama
 291,Poison Ivy II (1996),Drama|Thriller
 292,Outbreak (1995),Action|Drama|Sci-Fi|Thriller
-293,Léon: The Professional (a.k.a. The Professional) (Léon) (1994),Action|Crime|Drama|Thriller
+293,Léon: The Professional (1994),Action|Crime|Drama|Thriller
 294,"Perez Family, The (1995)",Comedy|Romance
 295,"Pyromaniac's Love Story, A (1995)",Comedy|Romance
 296,Pulp Fiction (1994),Comedy|Crime|Drama|Thriller
@@ -546,7 +546,7 @@ movieId,title,genres
 645,Nelly & Monsieur Arnaud (1995),Drama
 647,Courage Under Fire (1996),Action|Crime|Drama|War
 648,Mission: Impossible (1996),Action|Adventure|Mystery|Thriller
-649,Cold Fever (Á köldum klaka) (1995),Comedy|Drama
+649,Cold Fever (1995),Comedy|Drama
 650,Moll Flanders (1996),Drama
 653,Dragonheart (1996),Action|Adventure|Fantasy
 656,Eddie (1996),Comedy
@@ -562,7 +562,7 @@ movieId,title,genres
 674,Barbarella (1968),Adventure|Comedy|Sci-Fi
 678,Some Folks Call It a Sling Blade (1993),Drama|Thriller
 679,"Run of the Country, The (1995)",Drama
-680,"Alphaville (Alphaville, une étrange aventure de Lemmy Caution) (1965)",Drama|Mystery|Romance|Sci-Fi|Thriller
+680,"Alphaville (1965)",Drama|Mystery|Romance|Sci-Fi|Thriller
 685,It's My Party (1996),Drama
 688,Operation Dumbo Drop (1995),Action|Adventure|Comedy|War
 691,Mrs. Winterbourne (1996),Comedy|Romance
@@ -595,7 +595,7 @@ movieId,title,genres
 735,Cemetery Man (Dellamorte Dellamore) (1994),Horror
 736,Twister (1996),Action|Adventure|Romance|Thriller
 737,Barb Wire (1996),Action|Sci-Fi
-741,Ghost in the Shell (Kôkaku kidôtai) (1995),Animation|Sci-Fi
+741,Ghost in the Shell (1995),Animation|Sci-Fi
 742,Thinner (1996),Horror|Thriller
 743,Spy Hard (1996),Comedy
 745,Wallace & Gromit: A Close Shave (1995),Animation|Children|Comedy
@@ -622,7 +622,7 @@ movieId,title,genres
 785,Kingpin (1996),Comedy
 786,Eraser (1996),Action|Drama|Thriller
 788,"Nutty Professor, The (1996)",Comedy|Fantasy|Romance|Sci-Fi
-790,"Unforgettable Summer, An (Un été inoubliable) (1994)",Drama
+790,"Unforgettable Summer, An (1994)",Drama
 791,"Last Klezmer: Leopold Kozlowski, His Life and Music, The (1994)",Documentary
 795,Somebody to Love (1994),Drama
 798,Daylight (1996),Action|Adventure|Drama|Thriller
@@ -843,11 +843,11 @@ movieId,title,genres
 1104,"Streetcar Named Desire, A (1951)",Drama
 1105,Children of the Corn IV: The Gathering (1996),Horror
 1107,Loser (1991),Comedy
-1111,Microcosmos (Microcosmos: Le peuple de l'herbe) (1996),Documentary
+1111,Microcosmos (1996),Documentary
 1112,Palookaville (1996),Action|Comedy|Drama
 1114,"Funeral, The (1996)",Crime|Drama
 1116,"Single Girl, A (Fille seule, La) (1995)",Drama
-1117,"Eighth Day, The (Huitième jour, Le) (1996)",Drama
+1117,"Eighth Day, The (1996)",Drama
 1119,Drunks (1995),Drama
 1120,"People vs. Larry Flynt, The (1996)",Comedy|Drama
 1121,Glory Daze (1995),Drama
@@ -892,7 +892,7 @@ movieId,title,genres
 1187,Passion Fish (1992),Drama
 1188,Strictly Ballroom (1992),Comedy|Romance
 1189,"Thin Blue Line, The (1988)",Documentary
-1190,Tie Me Up! Tie Me Down! (¡Átame!) (1990),Crime|Drama|Romance
+1190,Tie Me Up! Tie Me Down! (1990),Crime|Drama|Romance
 1191,Madonna: Truth or Dare (1991),Documentary|Musical
 1192,Paris Is Burning (1990),Documentary
 1193,One Flew Over the Cuckoo's Nest (1975),Drama
@@ -1099,7 +1099,7 @@ movieId,title,genres
 1426,Zeus and Roxanne (1997),Children
 1427,Turbulence (1997),Action|Thriller
 1428,Angel Baby (1995),Drama
-1429,First Strike (Police Story 4: First Strike) (Ging chaat goo si 4: Ji gaan daan yam mo) (1996),Action|Adventure|Comedy|Thriller
+1429,First Strike (Police Story 4: First Strike) (1996),Action|Adventure|Comedy|Thriller
 1430,Underworld (1996),Comedy|Thriller
 1431,Beverly Hills Ninja (1997),Action|Comedy
 1432,Metro (1997),Action|Comedy|Crime|Drama|Thriller
@@ -5407,7 +5407,7 @@ movieId,title,genres
 25769,"Steamboat Bill, Jr. (1928)",Comedy|Romance
 25771,"Andalusian Dog, An (Chien andalou, Un) (1929)",Fantasy
 25773,Little Caesar (1931),Crime|Drama
-25782,Boudu Saved From Drowning (Boudu sauvé des eaux) (1932),Comedy
+25782,Boudu Saved From Drowning (1932),Comedy
 25788,Scarface (1932),Crime|Drama
 25795,Dinner at Eight (1933),Comedy|Drama|Romance
 25797,Gold Diggers of 1933 (1933),Musical
@@ -5462,13 +5462,13 @@ movieId,title,genres
 26150,Andrei Rublev (Andrey Rublyov) (1969),Drama|War
 26151,Au Hasard Balthazar (1966),Crime|Drama
 26152,Batman (1966),Action|Adventure|Comedy
-26158,Closely Watched Trains (Ostre sledované vlaky) (1966),Comedy|Drama|War
+26158,Closely Watched Trains (1966),Comedy|Drama|War
 26159,Tokyo Drifter (Tôkyô nagaremono) (1966),Action|Crime|Drama
 26169,Branded to Kill (Koroshi no rakuin) (1967),Action|Crime|Drama
 26171,Play Time (a.k.a. Playtime) (1967),Comedy
 26172,Point Blank (1967),Action|Crime|Drama|Thriller
 26176,Titicut Follies (1967),Documentary|Drama
-26183,Asterix and Cleopatra (Astérix et Cléopâtre) (1968),Action|Adventure|Animation|Children|Comedy
+26183,Asterix and Cleopatra (1968),Action|Adventure|Animation|Children|Comedy
 26184,"Diamond Arm, The (Brilliantovaya ruka) (1968)",Action|Adventure|Comedy|Crime|Thriller
 26195,Sympathy for the Devil (1968),Documentary|Musical
 26198,"Yours, Mine and Ours (1968)",Children|Comedy
@@ -5488,7 +5488,7 @@ movieId,title,genres
 26317,Emmanuelle (1974),Drama|Romance
 26322,Gone in 60 Seconds (1974),Action|Crime|Drama
 26326,"Holy Mountain, The (Montaña sagrada, La) (1973)",Drama
-26340,"Twelve Tasks of Asterix, The (Les douze travaux d'Astérix) (1976)",Action|Adventure|Animation|Children|Comedy|Fantasy
+26340,"Twelve Tasks of Asterix, The (1976)",Action|Adventure|Animation|Children|Comedy|Fantasy
 26344,French Connection II (1975),Action|Crime|Drama|Thriller
 26347,"Irony of Fate, or Enjoy Your Bath! (Ironiya sudby, ili S legkim parom!) (1975)",Comedy|Drama|Romance
 26350,"Passenger, The (Professione: reporter) (1975)",Drama
@@ -5518,7 +5518,7 @@ movieId,title,genres
 26510,"Ewok Adventure, The (a.k.a. Caravan of Courage: An Ewok Adventure) (1984)",Adventure|Children|Fantasy|Sci-Fi
 26523,"Silent Night, Deadly Night (1984)",Horror|Thriller
 26524,"Times of Harvey Milk, The (1984)",Documentary
-26527,What Have I Done to Deserve This? (¿Qué he hecho yo para merecer esto!!) (1984),Comedy|Drama
+26527,What Have I Done to Deserve This? (1984),Comedy|Drama
 26528,Anne of Green Gables (1985),Children|Drama
 26539,Death of a Salesman (1985),Drama
 26542,Ewoks: The Battle for Endor (1985),Adventure|Children|Fantasy|Sci-Fi
@@ -5554,7 +5554,7 @@ movieId,title,genres
 26695,"Krays, The (1990)",Drama
 26696,Lionheart (1990),Action
 26700,Nuns on the Run (1990),Comedy|Crime
-26701,Patlabor: The Movie (Kidô keisatsu patorebâ: The Movie) (1989),Action|Animation|Crime|Drama|Film-Noir|Mystery|Sci-Fi|Thriller
+26701,Patlabor: The Movie (1989),Action|Animation|Crime|Drama|Film-Noir|Mystery|Sci-Fi|Thriller
 26704,State of Grace (1990),Crime|Drama|Thriller
 26712,35 Up (1991),Documentary
 26713,Days of Being Wild (A Fei jingjyuhn) (1990),Drama|Romance
@@ -5590,12 +5590,12 @@ movieId,title,genres
 26865,Fist of Legend (Jing wu ying xiong) (1994),Action|Drama
 26870,Major League II (1994),Comedy
 26871,My Father the Hero (1994),Comedy|Romance
-26875,"Pure Formality, A (Pura formalità, Una) (1994)",Crime|Film-Noir|Mystery|Thriller
+26875,"Pure Formality, A (1994)",Crime|Film-Noir|Mystery|Thriller
 26887,"Langoliers, The (1995)",Drama|Fantasy|Horror|Mystery|Sci-Fi|Thriller
-26900,"Last Wedding, The (Kivenpyörittäjän kylä) (1995)",Comedy|Drama
+26900,"Last Wedding, The (1995)",Comedy|Drama
 26901,Last of the Dogmen (1995),Adventure|Western
 26903,Whisper of the Heart (Mimi wo sumaseba) (1995),Animation|Drama|Romance
-26913,Street Fighter II: The Animated Movie (Sutorîto Faitâ II gekijô-ban) (1994),Action|Animation
+26913,Street Fighter II: The Animated Movie (1994),Action|Animation
 26928,"Summer's Tale, A (Conte d'été) (1996)",Comedy|Drama|Romance
 26940,"Late Shift, The (1996)",Comedy
 26947,Pusher (1996),Crime|Thriller
@@ -5615,10 +5615,10 @@ movieId,title,genres
 27075,Addams Family Reunion (1998),Children|Comedy|Fantasy
 27105,Purgatory (1999),Fantasy|Western
 27124,Bleeder (1999),Drama|Thriller
-27134,Dark Portals: The Chronicles of Vidocq  (Vidocq) (2001),Action|Crime|Fantasy
+27134,Dark Portals: The Chronicles of Vidocq (2001),Action|Crime|Fantasy
 27140,Candyman 3: Day of the Dead (1999),Horror
 27155,"Batman/Superman Movie, The (1998)",Action|Adventure|Animation|Children|Fantasy|Sci-Fi
-27156,"Neon Genesis Evangelion: The End of Evangelion (Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni) (1997)",Action|Animation|Drama|Fantasy|Sci-Fi
+27156,"Neon Genesis Evangelion: The End of Evangelion (1997)",Action|Animation|Drama|Fantasy|Sci-Fi
 27176,Style Wars (1983),Documentary
 27178,In July (Im Juli) (2000),Comedy|Romance
 27186,Kirikou and the Sorceress (Kirikou et la sorcière) (1998),Adventure|Animation|Children|Fantasy
@@ -5629,11 +5629,11 @@ movieId,title,genres
 27266,2046 (2004),Drama|Fantasy|Romance|Sci-Fi
 27306,Bartleby (2001),Comedy|Drama
 27311,Batman Beyond: Return of the Joker (2000),Action|Animation|Crime|Sci-Fi|Thriller
-27317,Audition (Ôdishon) (1999),Drama|Horror|Mystery|Romance|Thriller
+27317,Audition (1999),Drama|Horror|Mystery|Romance|Thriller
 27320,"Nine Lives of Tomas Katz, The (2000)",Comedy|Drama|Fantasy
 27328,Monday (2000),Action|Comedy|Crime|Fantasy|Thriller
 27329,Paradise Lost 2: Revelations (2000),Documentary
-27368,Asterix & Obelix: Mission Cleopatra (Astérix & Obélix: Mission Cléopâtre) (2002),Adventure|Comedy|Fantasy
+27368,Asterix & Obelix: Mission Cleopatra (2002),Adventure|Comedy|Fantasy
 27369,Daria: Is It Fall Yet? (2000),Animation|Comedy
 27370,Late Night Shopping (2001),Comedy
 27373,61* (2001),Drama
@@ -5656,7 +5656,7 @@ movieId,title,genres
 27539,Undertaking Betty (Plots with a View) (2002),Comedy|Romance
 27549,Dead or Alive: Final (2002),Comedy|Crime|Drama|Sci-Fi|Thriller
 27555,Fubar (2002),Comedy
-27563,"Happiness of the Katakuris, The (Katakuri-ke no kôfuku) (2001)",Comedy|Horror|Musical
+27563,"Happiness of the Katakuris, The (2001)",Comedy|Horror|Musical
 27584,Dead End (2003),Comedy|Horror|Mystery|Thriller
 27592,Sympathy for Mr. Vengeance (Boksuneun naui geot) (2002),Crime|Drama
 27595,Jesus Christ Vampire Hunter (2001),Action|Comedy|Horror|Musical
@@ -5672,15 +5672,15 @@ movieId,title,genres
 27674,11:14 (2003),Comedy|Crime|Drama|Mystery|Thriller
 27683,Tremors 4: The Legend Begins (2004),Action|Comedy|Horror|Sci-Fi|Thriller|Western
 27685,Bring It On Again (2004),Comedy
-27689,"Crimson Rivers 2: Angels of the Apocalypse (Rivières pourpres II - Les anges de l'apocalypse, Les) (2004)",Action|Crime|Thriller
+27689,"Crimson Rivers 2: Angels of the Apocalypse (2004)",Action|Crime|Thriller
 27692,And Starring Pancho Villa as Himself (2003),Action|Comedy|Drama|War
 27695,Nicotina (2003),Action|Comedy|Drama
 27704,Battle Royale 2: Requiem (Batoru rowaiaru II: Chinkonka) (2003),Action|Drama|Thriller|War
 27705,In Hell (2003),Action|Drama|Thriller
 27706,Lemony Snicket's A Series of Unfortunate Events (2004),Adventure|Children|Comedy|Fantasy
 27708,Helen of Troy (2003),Action|Adventure|Drama|Romance
-27716,"Green Butchers, The (Grønne slagtere, De) (2003)",Comedy|Crime|Drama|Romance
-27721,"Very Long Engagement, A (Un long dimanche de fiançailles) (2004)",Drama|Mystery|Romance|War
+27716,"Green Butchers, The (2003)",Comedy|Crime|Drama|Romance
+27721,"Very Long Engagement, A (2004)",Drama|Mystery|Romance|War
 27722,Last Life in the Universe (Ruang rak noi nid mahasan) (2003),Drama|Romance
 27728,Ghost in the Shell 2: Innocence (a.k.a. Innocence) (Inosensu) (2004),Action|Animation|Drama|Sci-Fi|Thriller
 27731,"Cat Returns, The (Neko no ongaeshi) (2002)",Adventure|Animation|Children|Fantasy
@@ -5730,7 +5730,7 @@ movieId,title,genres
 27905,Casshern (2004),Action|Drama|Fantasy|Sci-Fi
 27912,Outfoxed: Rupert Murdoch's War on Journalism (2004),Documentary
 30707,Million Dollar Baby (2004),Drama
-30745,Gozu (Gokudô kyôfu dai-gekijô: Gozu) (2003),Comedy|Crime|Drama|Horror|Mystery
+30745,Gozu (2003),Comedy|Crime|Drama|Horror|Mystery
 30749,Hotel Rwanda (2004),Drama|War
 30793,Charlie and the Chocolate Factory (2005),Adventure|Children|Comedy|Fantasy|IMAX
 30803,3-Iron (Bin-jip) (2004),Drama|Romance
@@ -5789,7 +5789,7 @@ movieId,title,genres
 31610,Purple Butterfly (Zi hudie) (2003),Drama
 31617,El Cid (1961),Action|Adventure|Drama|Romance|War
 31658,Howl's Moving Castle (Hauru no ugoku shiro) (2004),Adventure|Animation|Fantasy|Romance
-31660,Steamboy (Suchîmubôi) (2004),Action|Animation|Drama|Sci-Fi
+31660,Steamboy (2004),Action|Animation|Drama|Sci-Fi
 31664,Gorgeous (Boh lee chun) (1999),Action|Comedy|Romance
 31685,Hitch (2005),Comedy|Romance
 31692,Uncle Nino (2003),Comedy
@@ -5797,7 +5797,7 @@ movieId,title,genres
 31696,Constantine (2005),Action|Fantasy|Horror|Thriller
 31698,Son of the Mask (2005),Adventure|Children|Comedy|Fantasy
 31700,Because of Winn-Dixie (2005),Children|Comedy|Drama
-31702,Turtles Can Fly (Lakposhtha hâm parvaz mikonand) (2004),Drama|War
+31702,Turtles Can Fly (2004),Drama|War
 31737,Bunny Lake Is Missing (1965),Mystery|Thriller
 31804,Night Watch (Nochnoy dozor) (2004),Action|Fantasy|Horror|Mystery|Sci-Fi|Thriller
 31851,Sons of the Desert (1933),Comedy
@@ -5857,8 +5857,8 @@ movieId,title,genres
 32666,National Lampoon's Lady Killers (National Lampoon's Gold Diggers) (2003),Comedy
 32728,"Little Girl Who Lives Down the Lane, The (1976)",Drama|Mystery|Thriller
 32743,Ringu 0: Bâsudei (2000),Drama|Horror|Thriller
-32770,Brothers (Brødre) (2004),Drama
-32799,Maidens in Uniform (Mädchen in Uniform) (1931),Drama|Romance
+32770,Brothers (2004),Drama
+32799,Maidens in Uniform (1931),Drama|Romance
 32862,With Six You Get Eggroll (1968),Comedy|Romance
 32875,Holiday (Jour de fête) (1949),Comedy
 32892,Ivan's Childhood (a.k.a. My Name is Ivan) (Ivanovo detstvo) (1962),Drama|War
@@ -5912,7 +5912,7 @@ movieId,title,genres
 33779,Eddie Izzard: Dress to Kill (1999),Comedy
 33781,Quo Vadis (1951),Drama|Romance
 33794,Batman Begins (2005),Action|Crime|IMAX
-33801,Godzilla: Final Wars (Gojira: Fainaru uôzu) (2004),Action|Adventure|Fantasy|Sci-Fi
+33801,Godzilla: Final Wars (2004),Action|Adventure|Fantasy|Sci-Fi
 33815,"Perfect Man, The (2005)",Comedy|Drama|Romance
 33826,Saint Ralph (2004),Comedy|Drama
 33830,Herbie: Fully Loaded (2005),Adventure|Comedy|Romance
@@ -5925,10 +5925,10 @@ movieId,title,genres
 33903,"Edukators, The (Die Fetten Jahre sind vorbei) (2004)",Comedy|Crime|Drama|Romance
 33966,Cop and ½ (1993),Comedy
 34018,At the Circus (1939),Comedy|Musical
-34072,"March of the Penguins (Marche de l'empereur, La) (2005)",Documentary
+34072,"March of the Penguins (2005)",Documentary
 34129,Rebound (2005),Comedy
 34143,Dark Water (2005),Drama|Horror|Thriller
-34148,"Beat That My Heart Skipped, The (battre mon coeur s'est arrêté, De) (2005)",Drama
+34148,"Beat That My Heart Skipped, The (2005)",Drama
 34150,Fantastic Four (2005),Action|Adventure|Sci-Fi
 34153,Murderball (2005),Documentary
 34162,Wedding Crashers (2005),Comedy|Romance
@@ -6036,7 +6036,7 @@ movieId,title,genres
 39449,Prime (2005),Comedy|Drama|Romance
 39516,Don't Move (Non ti muovere) (2004),Drama
 39715,American Pie Presents: Band Camp (American Pie 4: Band Camp) (2005),Comedy
-39801,"Great Yokai War, The (Yôkai daisensô) (2005)",Adventure|Comedy|Fantasy|Horror
+39801,"Great Yokai War, The (2005)",Adventure|Comedy|Fantasy|Horror
 39869,Manderlay (2005),Drama
 40148,Revolver (2005),Crime|Drama|Thriller
 40278,Jarhead (2005),Action|Drama|War
@@ -6073,7 +6073,7 @@ movieId,title,genres
 41571,Memoirs of a Geisha (2005),Drama|Romance
 41573,"Family Stone, The (2005)",Comedy|Drama|Romance
 41617,Havoc (2005),Crime|Drama|Romance
-41627,Samurai Rebellion (Jôi-uchi: Hairyô tsuma shimatsu) (1967),Action|Drama
+41627,Samurai Rebellion (1967),Action|Drama
 41712,"Room for Romeo Brass, A (1999)",Comedy|Drama
 41716,"Matador, The (2005)",Comedy|Drama|Thriller
 41724,Wal-Mart: The High Cost of Low Price (2005),Documentary
@@ -6111,7 +6111,7 @@ movieId,title,genres
 42761,Casper Meets Wendy (1998),Adventure|Children|Comedy|Fantasy
 42943,Revolution (1985),Adventure|Drama|War
 42946,Project A ('A' gai waak) (1983),Action|Comedy
-43289,"Bird People in China, The (Chûgoku no chôjin) (1998)",Adventure|Comedy|Drama|Fantasy
+43289,"Bird People in China, The (1998)",Adventure|Comedy|Drama|Fantasy
 43333,Water (2005),Drama|Romance
 43376,Sophie Scholl: The Final Days (Sophie Scholl - Die letzten Tage) (2005),Drama|War
 43396,"World's Fastest Indian, The (2005)",Drama
@@ -6964,7 +6964,6 @@ movieId,title,genres
 66203,He's Just Not That Into You (2009),Comedy|Drama|Romance
 66240,Dead Like Me: Life After Death (2009),Comedy|Fantasy
 66297,Futurama: Into the Wild Green Yonder (2009),Action|Animation|Comedy|Sci-Fi
-66310,Frontière(s) (2007),Drama|Horror|Thriller
 66320,"11th Hour, The (2007)",Documentary
 66335,Afro Samurai: Resurrection (2009),Animation
 66371,Departures (Okuribito) (2008),Drama
@@ -6985,7 +6984,7 @@ movieId,title,genres
 67186,"Haunting in Connecticut, The (2009)",Horror|Thriller
 67193,Duplicity (2009),Crime|Romance|Thriller
 67197,Knowing (2009),Action|Drama|Mystery|Sci-Fi|Thriller
-67255,"Girl with the Dragon Tattoo, The (Män som hatar kvinnor) (2009)",Crime|Drama|Mystery|Thriller
+67255,"Girl with the Dragon Tattoo, The (2009)",Crime|Drama|Mystery|Thriller
 67267,Sunshine Cleaning (2008),Comedy|Drama
 67295,Kung Fu Panda: Secrets of the Furious Five (2008),Action|Animation|Children|Comedy
 67361,Echelon Conspiracy (2009),Action|Mystery|Thriller
@@ -7027,13 +7026,13 @@ movieId,title,genres
 68793,Night at the Museum: Battle of the Smithsonian (2009),Action|Comedy|IMAX
 68835,Were the World Mine (2008),Adventure|Fantasy|Musical|Romance
 68848,"Brothers Bloom, The (2008)",Adventure|Comedy|Crime|Romance
-68872,Paisan (Paisà) (1946),Drama|War
-68886,I Do: How to Get Married and Stay Single (Prête-moi ta main) (2006),Comedy|Romance
+68872,Paisan (1946),Drama|War
+68886,I Do: How to Get Married and Stay Single (2006),Comedy|Romance
 68932,"Soloist, The (2009)",Drama|Musical
-68945,Neon Genesis Evangelion: Death & Rebirth (Shin seiki Evangelion Gekijô-ban: Shito shinsei) (1997),Action|Animation|Mystery|Sci-Fi
+68945,Neon Genesis Evangelion: Death & Rebirth (1997),Action|Animation|Mystery|Sci-Fi
 68952,Drag Me to Hell (2009),Comedy|Horror
 68954,Up (2009),Adventure|Animation|Children|Drama
-68959,Fullmetal Alchemist the Movie: Conqueror of Shamballa (Gekijô-ban hagane no renkinjutsushi: Shanbara wo yuku mono) (2005),Action|Adventure|Animation|Drama
+68959,Fullmetal Alchemist the Movie: Conqueror of Shamballa (2005),Action|Adventure|Animation|Drama
 69069,Fired Up (2009),Comedy
 69118,In the Electric Mist (2009),Drama|Mystery
 69122,"Hangover, The (2009)",Comedy|Crime
@@ -7093,7 +7092,7 @@ movieId,title,genres
 70451,Max Manus (2008),Action|Drama|War
 70492,Winds of the Wasteland (1936),Western
 70521,Lost in Austen (2008),Drama|Fantasy|Romance|Sci-Fi
-70533,Evangelion: 1.0 You Are (Not) Alone (Evangerion shin gekijôban: Jo) (2007),Action|Animation|Sci-Fi
+70533,Evangelion: 1.0 You Are (Not) Alone (2007),Action|Animation|Sci-Fi
 70545,"Deal, The (2008)",Comedy
 70565,"Goods: Live Hard, Sell Hard, The (2009)",Comedy
 70599,"Time Traveler's Wife, The (2009)",Drama|Romance|Sci-Fi
@@ -7114,7 +7113,7 @@ movieId,title,genres
 71033,"Secret in Their Eyes, The (El secreto de sus ojos) (2009)",Crime|Drama|Mystery|Romance|Thriller
 71057,9 (2009),Adventure|Animation|Sci-Fi
 71106,Frequently Asked Questions About Time Travel (2009),Comedy|Sci-Fi
-71108,"White Ribbon, The (Das weiße Band) (2009)",Drama|Mystery
+71108,"White Ribbon, The (2009)",Drama|Mystery
 71129,Green Lantern: First Flight (2009),Action|Adventure|Animation|Fantasy|Sci-Fi
 71131,"Most Hated Family in America, The (2007)",Documentary
 71135,Pandorum (2009),Horror|Sci-Fi|Thriller

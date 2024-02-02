@@ -1,6 +1,6 @@
 from fastapi_studies.application.movie.common import CacheStorageKey
 from fastapi_studies.application.movie.exceptions import MoviesNotFound
-from fastapi_studies.application.movie.exceptions import MoviesOutOfRange
+from fastapi_studies.application.movie.exceptions import PageOutOfRange
 from fastapi_studies.application.movie.interfaces import MovieCache
 from fastapi_studies.application.movie.interfaces import MovieReader
 from fastapi_studies.application.movie.models import Movie
@@ -59,7 +59,7 @@ class MovieFindService:
             pagination_params: MoviePaginationParams | None = None
     ) -> list[Movie]:
         movies = list(await self._movie_cache.read(
-                key=key, pagination_params=pagination_params
+            key=key, pagination_params=pagination_params
         ))
         return movies
 
@@ -77,10 +77,9 @@ class MovieFindService:
             self,
             items_total: int,
             start_item: int
-    ) -> bool:
+    ):
         if start_item > items_total:
-            raise MoviesOutOfRange
-        return True
+            raise PageOutOfRange
 
     async def _get_movies(
             self,

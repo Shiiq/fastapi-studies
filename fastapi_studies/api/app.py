@@ -6,8 +6,9 @@ from fastapi import FastAPI
 from redis.asyncio.client import Redis
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from fastapi_studies.api.dependencies.setup import setup_dependencies
-from fastapi_studies.api.routers.setup import setup_routers
+from fastapi_studies.api.dependencies import setup_dependencies
+from fastapi_studies.api.exception_handlers import setup_exception_handlers
+from fastapi_studies.api.routers import setup_routers
 from .config import ApiConfig
 
 
@@ -32,9 +33,7 @@ def create_app(
         db_session_source=db_session_source,
         redis_client_source=redis_client_source
     )
-    app = FastAPI(
-        title=api_config.title,
-        lifespan=lifespan
-    )
+    app = FastAPI(title=api_config.title, lifespan=lifespan)
+    setup_exception_handlers(app)
     setup_routers(app)
     return app

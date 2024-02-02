@@ -1,10 +1,11 @@
 from dataclasses import asdict
-from json import dumps, loads
 from typing import Iterator, Sequence
 
+import orjson
 from redis.asyncio.client import Redis
 
-from fastapi_studies.application.movie.common import CacheStorageKey, MovieJSON
+from fastapi_studies.application.movie.common import CacheStorageKey
+from fastapi_studies.application.movie.common import MovieJSON
 from fastapi_studies.application.movie.interfaces import MovieCache
 from fastapi_studies.application.movie.models import Movie as MovieDTO
 from fastapi_studies.application.movie.models import MoviePaginationParams
@@ -12,11 +13,11 @@ from fastapi_studies.application.movie.models import MoviePaginationParams
 
 def movie_dto_to_json(input_data: MovieDTO) -> MovieJSON:
     movie_as_dict = asdict(input_data)
-    return dumps(movie_as_dict)
+    return orjson.dumps(movie_as_dict)
 
 
 def movie_json_to_dto(input_data: MovieJSON) -> MovieDTO:
-    movie_as_dict = loads(input_data)
+    movie_as_dict = orjson.loads(input_data)
     return MovieDTO(
         title=movie_as_dict["title"],
         year=int(movie_as_dict["year"]),

@@ -8,7 +8,7 @@ from fastapi_studies.application.movie.models import MoviePaginationParams
 ITEMS_PER_PAGE = 10
 
 
-class Paginator:
+class MoviePaginator:
 
     def create_response(
             self,

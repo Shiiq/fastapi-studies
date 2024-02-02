@@ -21,7 +21,7 @@ def get_db_repo(session: Stub(AsyncSession) = Depends()) -> MovieDBRepo:
     yield MovieDBRepo(session)
 
 
-def get_findmovie_service(
+def get_moviefind_service(
         movie_cache_repo: Stub(MovieCache) = Depends(),
         movie_db_repo: Stub(MovieReader) = Depends()
 ):
@@ -37,4 +37,4 @@ def setup_dependencies(
     app.dependency_overrides[Stub(Redis)] = lambda: redis_client
     app.dependency_overrides[Stub(MovieCache)] = get_cache_repo
     app.dependency_overrides[Stub(MovieReader)] = get_db_repo
-    app.dependency_overrides[Stub(MovieFindService)] = get_findmovie_service
+    app.dependency_overrides[Stub(MovieFindService)] = get_moviefind_service

@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field, PositiveInt
 
 class MovieRequest(BaseModel):
 
-    genre: list[str] | None = Field(Query(None))
+    genre: list[str] = Field(Query([]))
     year_from: PositiveInt | None = Field(Query(None))
     year_to: PositiveInt | None = Field(Query(None))
 
