@@ -28,13 +28,16 @@ class MovieFindService:
             self,
             filter_params: MovieFilterParams
     ):
-        cache_key = CacheStorageKey(self._generate_uniq_key(filter_params))
+        """
+        Generate and attach uniq REDIS key to data obj :class:`MovieFilterParams`
+        """
+        cache_key = self._generate_uniq_key(filter_params)
         filter_params.cache_key = cache_key
 
     def _generate_uniq_key(
             self,
             key_params: MovieFilterParams
-    ) -> str:
+    ) -> CacheStorageKey:
         return CacheStorageKey(
             "movies:"
             f"{'-'.join(key_params.genre) if key_params.genre else 'all'}:"

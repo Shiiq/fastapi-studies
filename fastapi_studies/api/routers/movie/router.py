@@ -29,7 +29,8 @@ def get_movie_filter_params(request_data: MovieRequest) -> MovieFilterParams:
 @movie_router.get(
     path="/get",
     response_model=MoviePaginatedResponse,
-    status_code=status.HTTP_200_OK
+    status_code=status.HTTP_200_OK,
+    tags=["movies", ]
 )
 async def get_movies_by_genre(
         request: Request,
@@ -44,7 +45,6 @@ async def get_movies_by_genre(
     movies = await movie_finder(
         filter_params=filter_params, pagination_params=pagination_params
     )
-    response = paginator.create_response(
+    return paginator.create_response(
         base_url=request.url, movies_data=movies
     )
-    return response

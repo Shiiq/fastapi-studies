@@ -1,6 +1,7 @@
 import csv
-import re
 import pathlib
+import re
+from sys import stdout
 from typing import Iterator
 
 # full record example:          152081,Zootopia (2016),Action|Adventure|Animation|Children|Comedy
@@ -16,9 +17,14 @@ YEAR = "year"
 
 
 def read_csv(filepath: pathlib.Path | str) -> Iterator[dict[str, str]]:
+
+    stdout.write(f"\nStarting to read <{filepath}>\n")
     with open(file=filepath, encoding='utf-8') as f:
         reader = csv.reader(f, delimiter=",")
-        next(reader)  # skip headers
+
+        # skip headers
+        next(reader)
+
         for line in reader:
             parsed = re.search(TITLE_YEAR_PATTERN, line[1])
             yield {

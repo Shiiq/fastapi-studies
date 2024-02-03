@@ -24,8 +24,7 @@ ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 
 FROM base as builder
 
-RUN apk update \
-    && apk add --no-cache gcc
+RUN apk update && apk add --no-cache gcc
 
 WORKDIR $PYSETUP_PATH
 
@@ -43,6 +42,6 @@ COPY --from=builder $PYSETUP_PATH $PYSETUP_PATH
 
 WORKDIR FastAPI-Studies
 
-COPY ./ ./
+ENV PYTHONPATH="$PYTHONPATH/FastAPI-Studies"
 
-CMD ["uvicorn", "fastapi_studies.main:app"]
+COPY ./ ./

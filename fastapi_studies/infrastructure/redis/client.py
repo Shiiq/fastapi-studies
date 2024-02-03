@@ -1,7 +1,6 @@
 from contextlib import asynccontextmanager
 from typing import AsyncContextManager
 
-import redis.asyncio as redis
 from redis.asyncio.client import Redis
 
 from .config import RedisConfig
@@ -12,7 +11,7 @@ async def get_redis_client(
         redis_config: RedisConfig
 ) -> AsyncContextManager[Redis]:
 
-    redis_client = redis.Redis(
+    redis_client = Redis(
         host=redis_config.host,
         port=redis_config.port
     )

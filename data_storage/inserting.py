@@ -10,15 +10,17 @@ async def insert_objs(
         session: AsyncSession,
         data: Iterable[dict[str, str]]
 ):
-    genres = {}
 
+    genres = {}
     for chunk in data:
         session.add(
             Movie(
                 title=chunk[TITLE],
                 year=chunk[YEAR],
-                genres=[genres.setdefault(genre_name.lower(), Genre(name=genre_name.lower()))
-                        for genre_name in chunk[GENRES]]
+                genres=[
+                    genres.setdefault(genre_name, Genre(name=genre_name))
+                    for genre_name in chunk[GENRES]
+                ]
             )
         )
 

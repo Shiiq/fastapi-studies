@@ -33,7 +33,11 @@ def create_app(
         db_session_source=db_session_source,
         redis_client_source=redis_client_source
     )
-    app = FastAPI(title=api_config.title, lifespan=lifespan)
+    app = FastAPI(
+        title=api_config.title,
+        description=api_config.description,
+        lifespan=lifespan
+    )
     setup_exception_handlers(app)
     setup_routers(app)
     return app

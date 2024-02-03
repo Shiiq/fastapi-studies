@@ -1,4 +1,7 @@
-version: "3.2"
+version: "3.8"
+
+volumes:
+  redis_data:
 
 services:
 #  migrations:
@@ -6,14 +9,14 @@ services:
 #    we don't need special migrations service because we use SQLITE
 #    ...
 
-  uploading_data:
-    ...
-
-  redis:
+  cache:
+    container_name: redis
     image: redis:7.2.4-alpine
-    restart: always
     ports:
       - "6379:6379"
+    restart: always
+    volumes:
+      - redis_data:/data
     command: redis-server --loglevel warning
 
   app:
@@ -22,5 +25,8 @@ services:
       context: .
       dockerfile: Dockerfile
     depends_on:
-      - redis
-    command: ["uvicorn", "fastapi_studies.main:app"]
+      - cache
+    ports:
+      - "8000:8000"
+    restart: always
+    command: ./start.sh

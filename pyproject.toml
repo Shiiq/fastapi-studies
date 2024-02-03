@@ -5,6 +5,7 @@ description = ""
 authors = ["Shiiq <anjunatown@gmail.com>"]
 readme = "README.md"
 
+
 [tool.poetry.dependencies]
 python = "^3.12"
 fastapi = {extras = ["uvicorn"], version = "^0.109.0"}
