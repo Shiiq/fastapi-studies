@@ -36,8 +36,8 @@ docker compose up -d --build
 ```
 ___
 Для работы с приложением удобнее всего будет воспользоваться возможностью FastAPI и открыть 
-уже сформированную интерактивную документацию API:
+уже сформированную интерактивную документацию API:  
 [http://127.0.0.1:12000/docs](http://127.0.0.1:12000/docs) или [http://localhost:12000/docs](http://localhost:12000/docs)
 ___
-anjunat@yandex.ru | Kiriakov P. | 2023
+anjunat@yandex.ru | Kiriakov P. | 2024
 ___
