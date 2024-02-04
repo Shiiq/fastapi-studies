@@ -1,4 +1,3 @@
-
 class ApplicationError(Exception):
 
     msg: str

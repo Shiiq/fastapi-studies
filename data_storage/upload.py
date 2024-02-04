@@ -1,6 +1,5 @@
 import asyncio
 import pathlib
-import sys
 from sys import stdout
 
 from sqlalchemy.exc import IntegrityError
@@ -15,12 +14,16 @@ FILEPATH = pathlib.Path("./data_storage/movies.csv")
 
 async def run_upload():
     """Script for upload data to db"""
+    stdout.write("\nPreparing to upload data to the database\n")
 
     data = read_csv(FILEPATH)
     session_factory = create_session_factory(load_config().db)
     async with session_factory() as session:
         await insert_objs(session, data)
-        await session.commit()
+        try:
+            await session.commit()
+        except IntegrityError:
+            pass
 
     stdout.write(
         f"\nThe data from the <{FILEPATH}>"

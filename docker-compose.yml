@@ -5,7 +5,6 @@ volumes:
 
 services:
 #  migrations:
-#
 #    we don't need special migrations service because we use SQLITE
 #    ...
 
@@ -17,7 +16,8 @@ services:
     restart: always
     volumes:
       - redis_data:/data
-    command: redis-server --loglevel warning
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server --include /usr/local/etc/redis/redis.conf
 
   app:
     container_name: app
@@ -27,6 +27,6 @@ services:
     depends_on:
       - cache
     ports:
-      - "8000:8000"
+      - "12000:8000"
     restart: always
     command: ./start.sh
