@@ -29,4 +29,3 @@ services:
     ports:
       - "12000:8000"
     restart: always
-#    command: ./start.sh

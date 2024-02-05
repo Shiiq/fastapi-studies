@@ -12,25 +12,14 @@ ___
 Шаг 1 - скачивание приложения
 ```shell
 mkdir FastAPI-Movies && cd FastAPI-Movies
+```
+```shell
 git clone https://github.com/Shiiq/fastapi-studies.git
 ```
-Шаг 2 - настройка виртуального окружения  
+Шаг 2 - сборка и запуск
 ```shell
-python3 -m venv venv
-source venv/bin/activate
 cd fastapi-studies
 ```
-Шаг 3 - установка зависимостей  
-Через pip
-```shell
-python3 -m pip install -r requirements.txt
-```
-Через poetry
-```shell
-poetry shell
-poetry install
-```
-Шаг 4 - сборка и запуск
 ```shell
 docker compose up -d --build
 ```
