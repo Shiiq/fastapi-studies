@@ -24,7 +24,7 @@ ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 
 FROM base as builder
 
-RUN apk update && apk add --no-cache gcc
+RUN apk update && apk add --no-cache gcc musl-dev libffi-dev
 
 WORKDIR $PYSETUP_PATH
 
