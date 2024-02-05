@@ -45,3 +45,5 @@ WORKDIR FastAPI-Studies
 ENV PYTHONPATH="$PYTHONPATH/FastAPI-Studies"
 
 COPY ./ ./
+
+ENTRYPOINT ["./start.sh"]
