@@ -20,7 +20,7 @@ class MovieCache(Protocol):
     async def read(
             self,
             key: CacheStorageKey,
-            pagination_params: MoviePaginationParams | None
+            pagination_params: MoviePaginationParams
     ) -> Iterator[Movie]:
         raise NotImplementedError
 

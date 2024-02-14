@@ -37,11 +37,10 @@ class MoviePaginator:
             self,
             pagination_input: PaginationRequest
     ) -> MoviePaginationParams:
-        start = (pagination_input.page - 1) * ITEMS_PER_PAGE
+        page = pagination_input.page if pagination_input.page > 0 else 1
+        start = (page - 1) * ITEMS_PER_PAGE
         end = start + ITEMS_PER_PAGE
-        return MoviePaginationParams(
-            start=start, end=end, page=pagination_input.page
-        )
+        return MoviePaginationParams(start=start, end=end, page=page)
 
     def _create_next_link(
             self,

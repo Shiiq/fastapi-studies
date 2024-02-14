@@ -34,22 +34,18 @@ class MovieCacheRepo(MovieCache):
             self,
             key: CacheStorageKey
     ) -> int:
-        count = self._redis.llen(key)
-        return count
+        return await self._redis.llen(key)
 
     async def read(
             self,
             key: CacheStorageKey,
-            pagination_params: MoviePaginationParams | None = None
+            pagination_params: MoviePaginationParams
     ) -> Iterator[MovieDTO]:
-        if pagination_params:
-            movies = await self._redis.lrange(
-                name=key,
-                start=pagination_params.start,
-                end=pagination_params.end - 1
-            )
-            return map(movie_json_to_dto, movies)
-        movies = await self._redis.lrange(name=key, start=0, end=-1)
+        movies = await self._redis.lrange(
+            name=key,
+            start=pagination_params.start,
+            end=pagination_params.end - 1
+        )
         return map(movie_json_to_dto, movies)
 
     async def write(
@@ -58,5 +54,4 @@ class MovieCacheRepo(MovieCache):
             movies: Sequence[MovieDTO]
     ) -> int:
         movies = map(movie_dto_to_json, movies)
-        movies_count = await self._redis.rpush(key, *movies)
-        return movies_count
+        return await self._redis.rpush(key, *movies)

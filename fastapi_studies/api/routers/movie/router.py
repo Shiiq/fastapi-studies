@@ -45,6 +45,4 @@ async def get_movies_by_genre(
     movies = await movie_finder(
         filter_params=filter_params, pagination_params=pagination_params
     )
-    return paginator.create_response(
-        base_url=request.url, movies_data=movies
-    )
+    return paginator.create_response(base_url=request.url, movies_data=movies)

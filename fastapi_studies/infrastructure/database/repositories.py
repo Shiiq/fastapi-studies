@@ -41,5 +41,4 @@ class MovieDBRepo(MovieReader):
             ))
 
         movies = await self._session.execute(q)
-        movies = movies.scalars().all()
-        return map(movie_orm_to_dto, movies)
+        return map(movie_orm_to_dto, movies.scalars().all())

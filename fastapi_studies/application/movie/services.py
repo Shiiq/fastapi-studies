@@ -59,7 +59,7 @@ class MovieFindService:
     async def _read_from_cache(
             self,
             key: CacheStorageKey,
-            pagination_params: MoviePaginationParams | None = None
+            pagination_params: MoviePaginationParams
     ) -> list[Movie]:
         movies = list(await self._movie_cache.read(
             key=key, pagination_params=pagination_params
