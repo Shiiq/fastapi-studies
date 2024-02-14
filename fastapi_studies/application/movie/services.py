@@ -87,7 +87,7 @@ class MovieFindService:
     async def _get_movies(
             self,
             filter_params: MovieFilterParams,
-            pagination_params: MoviePaginationParams | None = None
+            pagination_params: MoviePaginationParams
     ) -> MoviesList:
 
         # check cache for number of movies by the key

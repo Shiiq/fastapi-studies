@@ -28,4 +28,4 @@ services:
       - cache
     ports:
       - "12000:8000"
-    restart: always
+    restart: unless-stopped

@@ -19,7 +19,7 @@ async def run_upload():
     data = read_csv(FILEPATH)
     session_factory = create_session_factory(load_config().db)
     async with session_factory() as session:
-        await insert_objs(session, data)
+        insert_objs(session, data)
         try:
             await session.commit()
         except IntegrityError:

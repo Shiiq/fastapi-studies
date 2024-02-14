@@ -1,5 +1,5 @@
 from dataclasses import asdict
-from typing import Iterator, Sequence
+from typing import Awaitable, Iterator, Sequence
 
 import orjson
 from redis.asyncio.client import Redis
@@ -13,7 +13,7 @@ from fastapi_studies.application.movie.models import MoviePaginationParams
 
 def movie_dto_to_json(input_data: MovieDTO) -> MovieJSON:
     movie_as_dict = asdict(input_data)
-    return orjson.dumps(movie_as_dict)
+    return MovieJSON(orjson.dumps(movie_as_dict))
 
 
 def movie_json_to_dto(input_data: MovieJSON) -> MovieDTO:
@@ -34,7 +34,7 @@ class MovieCacheRepo(MovieCache):
             self,
             key: CacheStorageKey
     ) -> int:
-        count = await self._redis.llen(key)
+        count = self._redis.llen(key)
         return count
 
     async def read(

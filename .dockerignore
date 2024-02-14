@@ -1,5 +1,7 @@
 .git
+.gitattributes
 .gitignore
 docker-compose.yml
 Dockerfile
 fastapi_studies.db
+redis.conf

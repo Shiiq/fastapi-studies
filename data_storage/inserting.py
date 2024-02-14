@@ -6,12 +6,12 @@ from fastapi_studies.infrastructure.database.models import Genre, Movie
 from .reading import GENRES, TITLE, YEAR
 
 
-async def insert_objs(
+def insert_objs(
         session: AsyncSession,
         data: Iterable[dict[str, str]]
 ):
 
-    genres = {}
+    genres: dict[str, Genre] = {}
     for chunk in data:
         session.add(
             Movie(
