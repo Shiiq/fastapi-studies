@@ -1,6 +1,6 @@
 from contextlib import asynccontextmanager
 from functools import partial
-from typing import AsyncContextManager, AsyncGenerator
+from typing import AsyncGenerator, AsyncIterator
 
 from fastapi import FastAPI
 from redis.asyncio.client import Redis
@@ -16,7 +16,7 @@ from .config import ApiConfig
 async def dependencies_lifespan(
         app: FastAPI,
         db_session_source: partial[AsyncGenerator[AsyncSession, None]],
-        redis_client_source: AsyncContextManager[Redis]
+        redis_client_source: AsyncIterator[Redis]
 ):
     async with redis_client_source as redis_client:
         setup_dependencies(app, db_session_source, redis_client)
@@ -26,7 +26,7 @@ async def dependencies_lifespan(
 def create_app(
         api_config: ApiConfig,
         db_session_source: partial[AsyncGenerator[AsyncSession, None]],
-        redis_client_source: AsyncContextManager[Redis]
+        redis_client_source: AsyncIterator[Redis]
 ) -> FastAPI:
     lifespan = partial(
         dependencies_lifespan,

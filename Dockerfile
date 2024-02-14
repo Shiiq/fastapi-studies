@@ -34,7 +34,7 @@ RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir setuptools wheel \
     && pip install --no-cache-dir "poetry==$POETRY_VERSION"
 
-RUN poetry install --no-interaction --no-ansi
+RUN poetry install --no-interaction --no-ansi --no-root
 
 
 FROM base as deployment
@@ -43,7 +43,7 @@ COPY --from=builder $PYSETUP_PATH $PYSETUP_PATH
 
 WORKDIR FastAPI-Studies
 
-ENV PYTHONPATH="$PYTHONPATH/FastAPI-Studies"
+ENV PYTHONPATH="$PYTHONPATH/FastAPI-Studies/src"
 
 COPY ./ ./
 

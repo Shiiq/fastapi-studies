@@ -1,6 +1,9 @@
 .git
 .gitattributes
 .gitignore
+.mypy_cache
+__data_storage
+__fastapi_studies
 docker-compose.yml
 Dockerfile
 fastapi_studies.db

@@ -1,4 +1,3 @@
-import asyncio
 import pathlib
 from sys import stdout
 
@@ -6,10 +5,10 @@ from sqlalchemy.exc import IntegrityError
 
 from fastapi_studies.infrastructure.config_loader import load_config
 from fastapi_studies.infrastructure.database.connection import create_session_factory
-from data_storage.reading import read_csv
-from data_storage.inserting import insert_objs
+from upload_data.reading import read_csv
+from upload_data.inserting import insert_objs
 
-FILEPATH = pathlib.Path("./data_storage/movies.csv")
+FILEPATH = pathlib.Path("./data/movies.csv")
 
 
 async def run_upload():
@@ -29,7 +28,3 @@ async def run_upload():
         f"\nThe data from the <{FILEPATH}>"
         f" has been successfully uploaded to the database\n"
     )
-
-
-if __name__ == "__main__":
-    asyncio.run(run_upload())

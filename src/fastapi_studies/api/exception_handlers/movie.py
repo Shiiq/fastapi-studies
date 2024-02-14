@@ -1,7 +1,6 @@
 from fastapi import Request, status
-from fastapi.responses import ORJSONResponse, Response
+from fastapi.responses import ORJSONResponse
 
-from fastapi_studies.application.movie.exceptions import ApplicationError
 from fastapi_studies.application.movie.exceptions import MoviesNotFound
 from fastapi_studies.application.movie.exceptions import PageOutOfRange
 
