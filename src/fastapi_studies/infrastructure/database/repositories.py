@@ -4,6 +4,7 @@ from sqlalchemy import and_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
+from fastapi_studies.application.movie.exceptions import MoviesNotFound
 from fastapi_studies.application.movie.interfaces import MovieReader
 from fastapi_studies.application.movie.models import Movie as MovieDTO
 from fastapi_studies.application.movie.models import MovieFilterParams
@@ -39,6 +40,23 @@ class MovieDBRepo(MovieReader):
             q = q.where(and_(
                 MovieORM.genre == genre for genre in filter_params.genre
             ))
-
         movies = await self._session.execute(q)
-        return map(movie_orm_to_dto, movies.scalars().all())
+        movies = movies.scalars().all()
+        if not movies:
+            raise MoviesNotFound
+        return map(movie_orm_to_dto, movies)
+
+    async def get_by_id(
+            self,
+            movie_id: int
+    ) -> MovieDTO:
+        q = (
+            select(MovieORM)
+            .options(selectinload(MovieORM.genres))
+            .where(MovieORM.id == movie_id)
+        )
+        movie = await self._session.execute(q)
+        movie = movie.scalar()
+        if not movie:
+            raise MoviesNotFound
+        return movie_orm_to_dto(movie)

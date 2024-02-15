@@ -3,6 +3,14 @@ from pydantic import BaseModel
 from fastapi_studies.application.movie.models import Movie
 
 
+class MovieResponse(BaseModel):
+
+    id: int
+    title: str
+    year: int
+    genres: list[str]
+
+
 class MoviePaginatedResponse(BaseModel):
 
     current_page: int

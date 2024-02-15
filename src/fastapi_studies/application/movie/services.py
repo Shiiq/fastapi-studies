@@ -1,5 +1,4 @@
 from fastapi_studies.application.movie.common import CacheStorageKey
-from fastapi_studies.application.movie.exceptions import MoviesNotFound
 from fastapi_studies.application.movie.exceptions import PageOutOfRange
 from fastapi_studies.application.movie.interfaces import MovieCache
 from fastapi_studies.application.movie.interfaces import MovieReader
@@ -51,9 +50,6 @@ class MovieFindService:
         movies = list(
             await self._movie_reader.get_by_genre_and_year(filter_params)
         )
-        # means that we don't have movies with these parameters
-        if not movies:
-            raise MoviesNotFound
         return movies
 
     async def _read_from_cache(
@@ -131,3 +127,6 @@ class MovieFindService:
                 total_count=movies_count,
                 current_page=pagination_params.page
             )
+
+    async def get_by_id(self, movie_id: int) -> Movie:
+        return await self._movie_reader.get_by_id(movie_id)

@@ -41,3 +41,10 @@ class MovieReader(Protocol):
             filter_params: MovieFilterParams
     ) -> Iterator[Movie]:
         raise NotImplementedError
+
+    @abstractmethod
+    async def get_by_id(
+            self,
+            movie_id: int
+    ) -> Movie:
+        raise NotImplementedError

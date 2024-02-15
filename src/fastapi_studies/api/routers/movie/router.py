@@ -4,6 +4,7 @@ from fastapi_studies.api.dependencies.stub import Stub
 from fastapi_studies.api.routers.movie.paginator import MoviePaginator
 from fastapi_studies.api.routers.movie.request import MovieRequest
 from fastapi_studies.api.routers.movie.request import PaginationRequest
+from fastapi_studies.api.routers.movie.response import MovieResponse
 from fastapi_studies.api.routers.movie.response import MoviePaginatedResponse
 from fastapi_studies.application.movie.constants import GENRE_DEFAULT
 from fastapi_studies.application.movie.constants import YEAR_FROM_DEFAULT
@@ -45,4 +46,21 @@ async def get_movies_by_genre(
     movies = await movie_finder(
         filter_params=filter_params, pagination_params=pagination_params
     )
-    return paginator.create_response(base_url=request.url, movies_data=movies)
+    return paginator.create_response(
+        base_url=request.url, movies_data=movies
+    )
+
+
+@movie_router.get(
+    path="/get/{movie_id}",
+    response_model=MovieResponse
+)
+async def get_movie_by_id(
+        movie_id: int,
+        movie_finder: Stub(MovieFindService) = Depends()
+) -> MovieResponse:
+
+    movie = await movie_finder.get_by_id(movie_id)
+    return MovieResponse(
+        id=movie_id, title=movie.title, year=movie.year, genres=movie.genres
+    )

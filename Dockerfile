@@ -47,4 +47,6 @@ ENV PYTHONPATH="$PYTHONPATH/FastAPI-Studies/src"
 
 COPY ./ ./
 
+#RUN pip install -e .
+
 ENTRYPOINT ["./start.sh"]
