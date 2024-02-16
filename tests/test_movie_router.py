@@ -11,7 +11,7 @@ movie_response = MovieResponse(
 )
 
 
-@pytest.mark.anyio
+# @pytest.mark.asyncio
 async def test_movie_by_id_endpoint(api_client):
     response = await api_client.get("/movies/get/125")
     assert response.status_code == 200

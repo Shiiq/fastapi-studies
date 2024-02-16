@@ -2,7 +2,6 @@ import pytest
 import pytest_asyncio
 from httpx import AsyncClient
 
-from fastapi_studies.main import app
 from fastapi_studies.infrastructure.database.config import DBConfig
 from fastapi_studies.infrastructure.database.connection import create_engine
 
@@ -20,8 +19,18 @@ from fastapi_studies.infrastructure.database.connection import create_engine
 #         yield conn
 #     await engine.dispose()
 
+@pytest.fixture()
+def app():
+    from fastapi_studies.main import app
+    yield app
 
-@pytest_asyncio.fixture
-async def api_client():
+
+@pytest.fixture()
+async def api_client(app):
     async with AsyncClient(app=app, base_url="http://localhost") as client:
         yield client
+
+
+# @pytest.fixture
+# def anyio_backend():
+#     return "asyncio"
