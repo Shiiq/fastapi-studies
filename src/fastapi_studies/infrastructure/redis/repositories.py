@@ -1,5 +1,5 @@
 from dataclasses import asdict
-from typing import Awaitable, Iterator, Sequence
+from typing import Iterator, Sequence
 
 import orjson
 from redis.asyncio.client import Redis

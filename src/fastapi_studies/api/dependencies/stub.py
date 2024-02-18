@@ -38,7 +38,6 @@ class Stub:
         if not self._kwargs:
             return hash(self._dependency)
         serial = (
-            self._dependency,
-            *self._kwargs.items(),
+            self._dependency, *self._kwargs.items(),
         )
         return hash(serial)

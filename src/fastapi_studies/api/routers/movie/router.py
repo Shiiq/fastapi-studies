@@ -53,7 +53,8 @@ async def get_movies_by_genre(
 
 @movie_router.get(
     path="/get/{movie_id}",
-    response_model=MovieResponse
+    response_model=MovieResponse,
+    tags=["movies", ]
 )
 async def get_movie_by_id(
         movie_id: int,

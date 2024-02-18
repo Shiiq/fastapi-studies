@@ -37,8 +37,8 @@ def setup_dependencies(
         db_session: partial[AsyncGenerator[AsyncSession, None]],
         redis_client: Redis
 ):
-    app.dependency_overrides[Stub(AsyncSession)] = db_session
-    app.dependency_overrides[Stub(Redis)] = lambda: redis_client
-    app.dependency_overrides[Stub(MovieCache)] = get_cache_repo
-    app.dependency_overrides[Stub(MovieReader)] = get_db_repo
-    app.dependency_overrides[Stub(MovieFindService)] = get_moviefind_service
+    app.dependency_overrides[AsyncSession] = db_session
+    app.dependency_overrides[Redis] = lambda: redis_client
+    app.dependency_overrides[MovieCache] = get_cache_repo
+    app.dependency_overrides[MovieReader] = get_db_repo
+    app.dependency_overrides[MovieFindService] = get_moviefind_service

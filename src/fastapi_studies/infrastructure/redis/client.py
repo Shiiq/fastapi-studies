@@ -11,9 +11,6 @@ async def get_redis_client(
         redis_config: RedisConfig
 ) -> AsyncIterator[Redis]:
 
-    redis_client = Redis(
-        host=redis_config.host,
-        port=redis_config.port
-    )
+    redis_client = Redis(host=redis_config.host, port=redis_config.port)
     yield redis_client
     await redis_client.aclose()

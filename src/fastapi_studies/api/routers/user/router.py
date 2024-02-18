@@ -9,7 +9,8 @@ user_router = APIRouter(prefix="/users")
 @user_router.get(
     path="/get",
     response_model=UserResponse,
-    status_code=status.HTTP_200_OK
+    status_code=status.HTTP_200_OK,
+    tags=["users", ]
 )
 async def get_user() -> UserResponse:
     return UserResponse(
@@ -20,7 +21,8 @@ async def get_user() -> UserResponse:
 @user_router.get(
     path="/get_all",
     response_model=UsersResponse,
-    status_code=status.HTTP_200_OK
+    status_code=status.HTTP_200_OK,
+    tags=["users", ]
 )
 async def get_users() -> UsersResponse:
     return UsersResponse(
